@@ -5,7 +5,6 @@
 *.cginc text eol=lf
 *.compute text eol=lf
 *.hlsl text eol=lf
-
 *.meta text eol=lf
 *.unity text eol=lf
 *.asset text eol=lf
@@ -13,10 +12,10 @@
 *.mat text eol=lf
 *.anim text eol=lf
 *.controller text eol=lf
-
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.fbx binary
 *.wav binary
 *.mp3 binary
+*.unity filter=lfs diff=lfs merge=lfs -text
