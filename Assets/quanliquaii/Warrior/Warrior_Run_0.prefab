@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2934856906819879463}
   m_Layer: 3
   m_Name: Warrior_Run_0
-  m_TagString: Enermy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

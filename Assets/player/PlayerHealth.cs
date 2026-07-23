@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // Bắt buộc phải có dòng này để dùng Slider thanh máu
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -36,22 +36,21 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // Hàm này sẽ được quái vật gọi khi chúng chạm vào Player
     public void TakeDamage(int amount)
     {
-        // Nếu đang trong thời gian bất tử thì bỏ qua, không trừ máu
+        // Nếu đang trong thời gian bất tử thì bỏ qua
         if (invincibilityTimer > 0) return;
 
-        // Trừ máu và cập nhật thanh máu
+        // Trừ máu và cập nhật thanh UI
         currentHealth -= amount;
-        invincibilityTimer = invincibilityTime; // Bắt đầu thời gian bất tử
+        invincibilityTimer = invincibilityTime;
 
         if (healthBar != null)
         {
             healthBar.value = currentHealth;
         }
 
-        // Kiểm tra xem đã chết chưa
+        // Kiểm tra chết
         if (currentHealth <= 0)
         {
             Die();
@@ -61,7 +60,6 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         Debug.Log("Player đã hết máu!");
-        // Tạm thời xóa nhân vật khi chết. Sau này bạn có thể gọi màn hình Game Over ở đây.
         Destroy(gameObject);
     }
 }
