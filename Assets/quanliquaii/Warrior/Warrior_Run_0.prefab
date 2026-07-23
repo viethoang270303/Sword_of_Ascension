@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6036883313789137436}
   - component: {fileID: -6568351127344232070}
   - component: {fileID: 2934856906819879463}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Warrior_Run_0
   m_TagString: Enermy
   m_Icon: {fileID: 0}
