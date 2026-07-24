@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
   speed: 2
-  health: 3
+  health: 2
 --- !u!61 &2934856906819879463
 BoxCollider2D:
   m_ObjectHideFlags: 0
