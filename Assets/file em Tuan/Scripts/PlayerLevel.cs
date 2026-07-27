@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // Cần dòng này để điều khiển UI
+using UnityEngine.UI;
 
 public class PlayerLevel : MonoBehaviour
 {
@@ -8,12 +8,14 @@ public class PlayerLevel : MonoBehaviour
     public int currentExp = 0;
     public int expToNextLevel = 100;
 
+    [Header("Chỉ số Sức mạnh")]
+    public int playerDamage = 1; // Mặc định ban đầu bắn mất 1 máu
+
     [Header("Giao diện (UI)")]
-    public Slider expBar; // Biến này để chứa thanh UI EXP
+    public Slider expBar;
 
     void Start()
     {
-        // Khi bắt đầu game, cài đặt thanh Exp
         if (expBar != null)
         {
             expBar.maxValue = expToNextLevel;
@@ -25,7 +27,6 @@ public class PlayerLevel : MonoBehaviour
     {
         currentExp += amount;
 
-        // Cập nhật thanh UI mỗi khi ăn Exp
         if (expBar != null)
         {
             expBar.value = currentExp;
@@ -40,16 +41,19 @@ public class PlayerLevel : MonoBehaviour
     void LevelUp()
     {
         currentLevel++;
-        currentExp -= expToNextLevel; // Giữ lại số Exp bị thừa
-        expToNextLevel += 50;         // Tăng mốc Exp của cấp tiếp theo
+        currentExp -= expToNextLevel;
+        expToNextLevel += 50;
 
-        // Cập nhật lại thanh UI sau khi lên cấp
+        // --- TĂNG SÁT THƯƠNG MỖI KHI LÊN CẤP ---
+        playerDamage += 1;
+        // ---------------------------------------
+
         if (expBar != null)
         {
-            expBar.maxValue = expToNextLevel; // Kéo dài ống Exp ra
-            expBar.value = currentExp;        // Đổ phần Exp thừa vào ống mới
+            expBar.maxValue = expToNextLevel;
+            expBar.value = currentExp;
         }
 
-        Debug.Log("CHÚC MỪNG! LÊN CẤP: " + currentLevel);
+        Debug.Log("CHÚC MỪNG! LÊN CẤP: " + currentLevel + " | Sát thương hiện tại: " + playerDamage);
     }
 }

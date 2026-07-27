@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\damagepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\damagepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\enemyscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\enemyscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerLevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\file em Tuan\\Scripts\\PlayerLevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerHealth.cs",
-              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
-              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAuwEoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-26T10:45:48.702Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DamagePopup.cs",
-              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DamagePopup.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\DamagePopup.cs",
-              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DamagePopup.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\DamagePopup.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA=="
+              "Title": "EnemyScript.cs",
+              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\EnemyScript.cs",
+              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\EnemyScript.cs",
+              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\EnemyScript.cs",
+              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\EnemyScript.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAkwJEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-26T10:40:41.957Z",
+              "WhenOpened": "2026-07-27T11:49:01.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EnemyScript.cs",
-              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "RelativeDocumentMoniker": "Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "RelativeToolTip": "Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAuwIEAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "PlayerLevel.cs",
+              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerLevel.cs",
+              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\PlayerLevel.cs",
+              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerLevel.cs",
+              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\PlayerLevel.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAkwDoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-26T10:34:53.142Z",
+              "WhenOpened": "2026-07-27T11:48:15.652Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EnemyScript.cs",
-              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "RelativeDocumentMoniker": "Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "RelativeToolTip": "Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAuwFMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-23T17:01:22.599Z"
             }
           ]
         }

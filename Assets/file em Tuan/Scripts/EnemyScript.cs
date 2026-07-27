@@ -49,22 +49,18 @@ public class EnemyScript : MonoBehaviour
         // 2. HỆ THỐNG ĐUỔI THEO & PHANH TỰ ĐỘNG (CHỐNG ĐẨY NGƯỜI)
         if (player != null)
         {
-            // Đo đạc khoảng cách giữa quái và người
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
             Vector2 direction = (player.position - transform.position).normalized;
 
-            // Nếu còn ở xa -> Chạy tới
             if (distanceToPlayer > stopDistance)
             {
                 rb.linearVelocity = direction * speed;
             }
-            // Nếu đã áp sát đủ gần -> Đứng im để cắn, không cố ủi tới để đẩy người chơi đi nữa
             else
             {
                 rb.linearVelocity = Vector2.zero;
             }
 
-            // Lật ảnh theo hướng
             if (direction.x < 0)
             {
                 spriteRenderer.flipX = true;
@@ -85,15 +81,23 @@ public class EnemyScript : MonoBehaviour
         // Nếu chạm vào viên đạn
         if (other.GetComponent<BulletScript>() != null)
         {
-            health--;
+            // --- TÍNH TOÁN SÁT THƯƠNG NHẬN VÀO TỪ PLAYER ---
+            int damageToTake = 1;
+            if (player != null)
+            {
+                PlayerLevel pLevel = player.GetComponent<PlayerLevel>();
+                if (pLevel != null)
+                {
+                    damageToTake = pLevel.playerDamage; // Đọc chỉ số sức mạnh của Player
+                }
+            }
+
+            health -= damageToTake; // Trừ máu quái
+                                    // ----------------------------------------------
 
             // --- KÍCH HOẠT HIỆU ỨNG ĐẨY LÙI ---
-            knockbackCounter = knockbackTime; // Bắt đầu thời gian choáng
-
-            // Tính hướng văng ra: Lấy vị trí quái vật TRỪ ĐI vị trí viên đạn
+            knockbackCounter = knockbackTime;
             Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
-
-            // Triệt tiêu vận tốc hiện tại và tác dụng lực văng ra sau
             rb.linearVelocity = Vector2.zero;
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
             // ---------------------------------
@@ -103,13 +107,13 @@ public class EnemyScript : MonoBehaviour
             // Nếu quái hết máu -> Chết
             if (health <= 0)
             {
-                // --- RỚT KINH NGHIỆM TRƯỚC KHI BIẾN MẤT ---
+                // Rớt kinh nghiệm
                 if (expGemPrefab != null)
                 {
                     Instantiate(expGemPrefab, transform.position, Quaternion.identity);
                 }
 
-                Destroy(gameObject); // Hủy quái vật
+                Destroy(gameObject);
             }
         }
     }
@@ -131,7 +135,6 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    // Tách riêng hàm trừ máu cho gọn code
     void DealDamage(GameObject target)
     {
         PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
