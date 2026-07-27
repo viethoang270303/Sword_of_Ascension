@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class MenuItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class MenuItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler
 {
     [Header("Hover Settings")]
     public TextMeshProUGUI label;
     public Color normalColor = Color.white;
-    public Color hoverColor = new Color(1f, 0.85f, 0.3f); // vàng
+    public Color hoverColor = new Color(1f, 0.85f, 0.3f);
 
     [Header("Sound")]
     public AudioClip hoverSound;
@@ -45,6 +45,18 @@ public class MenuItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerClick(PointerEventData eventData)
     {
         PlaySound(clickSound);
+    }
+
+    // Kích hoạt khi được chọn bằng bàn phím/tay cầm
+    public void OnSelect(BaseEventData eventData)
+    {
+        label.color = hoverColor;
+        PlaySound(hoverSound);
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        label.color = normalColor;
     }
 
     void PlaySound(AudioClip clip)
