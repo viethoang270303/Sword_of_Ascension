@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\damagepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\damagepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,6 +16,24 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\users\admin\onedrive\tài liệu\github\sword_of_ascension\assets\scripts\batdau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\scripts\batdau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\users\admin\onedrive\tài liệu\github\sword_of_ascension\assets\scripts\menuitemhover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\scripts\menuitemhover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+>>>>>>> 80d8720996ff526e02a14cccdea97a762b30876b
       "AbsoluteMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:2:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -26,6 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -50,6 +70,84 @@
               "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DamagePopup.cs",
               "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\DamagePopup.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA=="
+=======
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "batdau.cs",
+              "DocumentMoniker": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\Scripts\batdau.cs",
+              "RelativeDocumentMoniker": "Assets\Scripts\batdau.cs",
+              "ToolTip": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\Scripts\batdau.cs",
+              "RelativeToolTip": "Assets\Scripts\batdau.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwAUAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T08:01:02.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerHealth.cs",
+              "DocumentMoniker": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\player\PlayerHealth.cs",
+              "RelativeDocumentMoniker": "Assets\player\PlayerHealth.cs",
+              "ToolTip": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\player\PlayerHealth.cs",
+              "RelativeToolTip": "Assets\player\PlayerHealth.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAuwEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T17:31:29.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BulletScript.cs",
+              "DocumentMoniker": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\player\BulletScript.cs",
+              "RelativeDocumentMoniker": "Assets\player\BulletScript.cs",
+              "ToolTip": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\player\BulletScript.cs",
+              "RelativeToolTip": "Assets\player\BulletScript.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T17:19:07.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerShoot.cs",
+              "DocumentMoniker": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\player\PlayerShoot.cs",
+              "RelativeDocumentMoniker": "Assets\player\PlayerShoot.cs",
+              "ToolTip": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\player\PlayerShoot.cs",
+              "RelativeToolTip": "Assets\player\PlayerShoot.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAuwCoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T17:17:13.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EnemyScript.cs",
+              "DocumentMoniker": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\quanliquaii\Warrior\EnemyScript.cs",
+              "RelativeDocumentMoniker": "Assets\quanliquaii\Warrior\EnemyScript.cs",
+              "ToolTip": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\quanliquaii\Warrior\EnemyScript.cs",
+              "RelativeToolTip": "Assets\quanliquaii\Warrior\EnemyScript.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAuwFMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T17:01:22.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MenuItemHover.cs",
+              "DocumentMoniker": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\Scripts\MenuItemHover.cs",
+              "RelativeDocumentMoniker": "Assets\Scripts\MenuItemHover.cs",
+              "ToolTip": "C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\Sword_of_Ascension\Assets\Scripts\MenuItemHover.cs",
+              "RelativeToolTip": "Assets\Scripts\MenuItemHover.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAuwDgAAAABAAAAAAAAAA=="
+>>>>>>> 80d8720996ff526e02a14cccdea97a762b30876b
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-26T10:40:41.957Z",
               "EditorCaption": ""
