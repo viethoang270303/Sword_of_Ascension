@@ -17,6 +17,10 @@ public class EnemyScript : MonoBehaviour
     [Tooltip("Khoảng cách quái dừng lại để cắn (tránh đẩy người chơi)")]
     public float stopDistance = 0.6f;
 
+    [Header("Vật phẩm rơi ra")]
+    [Tooltip("Kéo hộp Prefab ExpDrop vào đây")]
+    public GameObject expGemPrefab;
+
     private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
@@ -78,6 +82,7 @@ public class EnemyScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // Nếu chạm vào viên đạn
         if (other.GetComponent<BulletScript>() != null)
         {
             health--;
@@ -93,15 +98,23 @@ public class EnemyScript : MonoBehaviour
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
             // ---------------------------------
 
-            Destroy(other.gameObject);
+            Destroy(other.gameObject); // Hủy viên đạn
 
+            // Nếu quái hết máu -> Chết
             if (health <= 0)
             {
-                Destroy(gameObject);
+                // --- RỚT KINH NGHIỆM TRƯỚC KHI BIẾN MẤT ---
+                if (expGemPrefab != null)
+                {
+                    Instantiate(expGemPrefab, transform.position, Quaternion.identity);
+                }
+
+                Destroy(gameObject); // Hủy quái vật
             }
         }
     }
 
+    // --- HỆ THỐNG GÂY SÁT THƯƠNG CHO PLAYER ---
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
