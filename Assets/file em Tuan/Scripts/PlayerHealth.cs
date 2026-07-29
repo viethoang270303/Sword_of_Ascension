@@ -25,6 +25,9 @@ public class PlayerHealth : MonoBehaviour
             healthBar.maxValue = maxHealth;
             healthBar.value = currentHealth;
         }
+
+        // Đảm bảo mỗi khi bắt đầu game, thời gian luôn chạy bình thường (tránh bị kẹt 0f từ ván trước)
+        Time.timeScale = 1f;
     }
 
     void Update()
@@ -47,19 +50,14 @@ public class PlayerHealth : MonoBehaviour
             healthBar.value = currentHealth;
         }
 
-        // --- CODE MỚI: TẠO SỐ NHẢY DAME ---
+        // --- TẠO SỐ NHẢY DAME ---
         if (damagePopupPrefab != null)
         {
-            // Cho số nhảy lệch ra một chút xíu để nếu quái cắn liên tục số không đè lên nhau
             Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0f, 0.5f), 0);
-
-            // Sinh ra vật thể chữ ở vị trí của Player
             GameObject popup = Instantiate(damagePopupPrefab, transform.position + randomOffset, Quaternion.identity);
-
-            // Truyền con số sát thương vào cho chữ hiển thị
             popup.GetComponent<DamagePopup>().Setup(amount);
         }
-        // ----------------------------------
+        // ------------------------
 
         if (currentHealth <= 0)
         {
@@ -69,7 +67,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Player đã hết máu!");
+        Debug.Log("Player đã hết máu! Game Over!");
+
+        // --- ĐÓNG BĂNG THỜI GIAN VÀ TOÀN BỘ GAMEPLAY ---
+        Time.timeScale = 0f;
+        // ----------------------------------------------
+
         Destroy(gameObject);
     }
 }

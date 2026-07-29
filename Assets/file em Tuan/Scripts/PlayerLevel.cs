@@ -9,13 +9,18 @@ public class PlayerLevel : MonoBehaviour
     public int expToNextLevel = 100;
 
     [Header("Chỉ số Sức mạnh")]
-    public int playerDamage = 1; // Mặc định ban đầu bắn mất 1 máu
+    public int playerDamage = 1;
 
     [Header("Giao diện (UI)")]
     public Slider expBar;
 
+    private SkillManager skillManager;
+
     void Start()
     {
+        // Tự động tìm SkillManager trong màn chơi
+        skillManager = FindFirstObjectByType<SkillManager>();
+
         if (expBar != null)
         {
             expBar.maxValue = expToNextLevel;
@@ -42,11 +47,7 @@ public class PlayerLevel : MonoBehaviour
     {
         currentLevel++;
         currentExp -= expToNextLevel;
-        expToNextLevel += 50;
-
-        // --- TĂNG SÁT THƯƠNG MỖI KHI LÊN CẤP ---
-        playerDamage += 1;
-        // ---------------------------------------
+        expToNextLevel += 50; // Cấp sau cần nhiều EXP hơn
 
         if (expBar != null)
         {
@@ -54,6 +55,17 @@ public class PlayerLevel : MonoBehaviour
             expBar.value = currentExp;
         }
 
-        Debug.Log("CHÚC MỪNG! LÊN CẤP: " + currentLevel + " | Sát thương hiện tại: " + playerDamage);
+        Debug.Log("CHÚC MỪNG! LÊN CẤP: " + currentLevel);
+
+        // --- GỌI BẢNG CHỌN KỸ NĂNG HIỆN LÊN ---
+        if (skillManager != null)
+        {
+            skillManager.ShowLevelUpPanel();
+        }
+        else
+        {
+            Debug.LogWarning("Chưa tìm thấy SkillManager trong Scene! Hãy kiểm tra lại!");
+        }
+        // --------------------------------------
     }
 }

@@ -1,77 +1,46 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Thư viện mới để nhận diện tay cầm chuẩn xác
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Thông số di chuyển")]
-    public float moveSpeed = 5f;
+    public float speed = 5f; // Có public để SkillManager cộng tốc độ
 
     private Rigidbody2D rb;
-    private Animator anim;
+    private Vector2 moveInput;
     private SpriteRenderer spriteRenderer;
-
-    private Vector2 movement;
-    private InputAction moveAction;
+    private Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        // 1. Cấu hình các nút bấm và tay cầm ngay trong code
-        moveAction = new InputAction("Move");
-
-        // Thêm cần Analog trái và D-pad của tay cầm Xbox
-        moveAction.AddBinding("<Gamepad>/leftStick");
-        moveAction.AddBinding("<Gamepad>/dpad");
-
-        // Thêm nhóm phím WASD
-        moveAction.AddCompositeBinding("2DVector")
-            .With("Up", "<Keyboard>/w")
-            .With("Down", "<Keyboard>/s")
-            .With("Left", "<Keyboard>/a")
-            .With("Right", "<Keyboard>/d");
-
-        // Thêm nhóm phím Mũi tên
-        moveAction.AddCompositeBinding("2DVector")
-            .With("Up", "<Keyboard>/upArrow")
-            .With("Down", "<Keyboard>/downArrow")
-            .With("Left", "<Keyboard>/leftArrow")
-            .With("Right", "<Keyboard>/rightArrow");
-
-        // Bật bộ thu tín hiệu
-        moveAction.Enable();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // 2. Đọc giá trị hướng đi (Tự động nhận diện thiết bị bạn đang bấm)
-        movement = moveAction.ReadValue<Vector2>();
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical");
 
-        // 3. Xử lý Animation và lật ảnh (Flip)
-        if (movement != Vector2.zero)
+        if (moveInput.x < 0)
         {
-            anim.SetBool("IsMoving", true);
-
-            if (movement.x < 0) spriteRenderer.flipX = true;
-            else if (movement.x > 0) spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
-        else
+        else if (moveInput.x > 0)
         {
-            anim.SetBool("IsMoving", false);
+            spriteRenderer.flipX = false;
+        }
+
+        if (animator != null)
+        {
+            bool isMoving = moveInput.sqrMagnitude > 0;
+            // Sửa chữ I viết hoa: "IsMoving" chuẩn 100% theo Animator của bạn
+            animator.SetBool("IsMoving", isMoving);
         }
     }
 
     void FixedUpdate()
     {
-        // 4. Di chuyển vật lý (Cú pháp chuẩn cho Unity 6 LTS)
-        rb.linearVelocity = movement * moveSpeed;
-    }
-
-    void OnDestroy()
-    {
-        // Tắt hành động khi nhân vật bị hủy hoặc chuyển màn chơi để tránh lỗi
-        if (moveAction != null) moveAction.Disable();
+        rb.linearVelocity = moveInput.normalized * speed;
     }
 }
