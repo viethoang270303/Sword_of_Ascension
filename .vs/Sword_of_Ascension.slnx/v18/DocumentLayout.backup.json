@@ -1,58 +1,69 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\",
+  "WorkspaceRootPath": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\admin\\onedrive\\ta\u0300i li\u00EA\u0323u\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\menuitemhover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\menuitemhover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\skillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\skillmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\skilldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\skilldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\admin\\onedrive\\ta\u0300i li\u00EA\u0323u\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\fpssettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\fpssettingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\swordorbit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\swordorbit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\admin\\onedrive\\ta\u0300i li\u00EA\u0323u\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\admin\\onedrive\\ta\u0300i li\u00EA\u0323u\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\settingspanelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\settingspanelcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\fpt\\documents\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\playerlevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\playerlevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\admin\\onedrive\\ta\u0300i li\u00EA\u0323u\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\close.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\close.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerHealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\file em Tuan\\Scripts\\PlayerHealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\admin\\onedrive\\ta\u0300i li\u00EA\u0323u\\github\\sword_of_ascension\\assets\\file em tuan\\scripts\\quitgamebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\file em tuan\\scripts\\quitgamebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerHealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\batdau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\batdau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\BulletScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerHealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\PlayerHealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerShoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\BulletScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\BulletScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerShoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\player\\PlayerShoot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\quanliquaii\\Warrior\\EnemyScript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\MenuItemHover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\MenuItemHover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\batdau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\AudioManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SettingsPanelController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\close.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\QuitGameButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,169 +73,234 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FPSSettingsController.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Title": "SwordOrbit.cs",
+              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SwordOrbit.cs",
+              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\SwordOrbit.cs",
+              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SwordOrbit.cs",
+              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\SwordOrbit.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAuwEYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T12:57:55.282Z",
+              "WhenOpened": "2026-07-29T07:41:47.844Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AudioManager.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\AudioManager.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\AudioManager.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\AudioManager.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\AudioManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\PlayerMovement.cs",
+              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerMovement.cs",
+              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\PlayerMovement.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAuwC0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T12:47:20.94Z"
+              "WhenOpened": "2026-07-29T06:48:18.684Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "PlayerLevel.cs",
+              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerLevel.cs",
+              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\PlayerLevel.cs",
+              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerLevel.cs",
+              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\PlayerLevel.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAuwEYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T06:46:00.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SkillManager.cs",
+              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SkillManager.cs",
+              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\SkillManager.cs",
+              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SkillManager.cs",
+              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\SkillManager.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAuwGoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T06:45:09.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SkillData.cs",
+              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SkillData.cs",
+              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\SkillData.cs",
+              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SkillData.cs",
+              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\SkillData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T06:38:52.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "SettingsPanelController.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SettingsPanelController.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\SettingsPanelController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SettingsPanelController.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SettingsPanelController.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\SettingsPanelController.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\SettingsPanelController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T12:39:16.748Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "close.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\close.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\close.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\close.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\close.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\close.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\close.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAQwBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T12:22:01.934Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "batdau.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\batdau.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\batdau.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\batdau.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\batdau.cs",
-              "RelativeToolTip": "Assets\\Scripts\\batdau.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\batdau.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T11:44:45.756Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\player\\PlayerHealth.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerHealth.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerHealth.cs",
-              "RelativeToolTip": "Assets\\player\\PlayerHealth.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAuwEAAAAABAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerHealth.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T11:44:45.81Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "BulletScript.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\BulletScript.cs",
-              "RelativeDocumentMoniker": "Assets\\player\\BulletScript.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\BulletScript.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\BulletScript.cs",
-              "RelativeToolTip": "Assets\\player\\BulletScript.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\BulletScript.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T11:44:45.812Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "PlayerShoot.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerShoot.cs",
-              "RelativeDocumentMoniker": "Assets\\player\\PlayerShoot.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerShoot.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerShoot.cs",
-              "RelativeToolTip": "Assets\\player\\PlayerShoot.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAuwCoAAAANAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\player\\PlayerShoot.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T11:44:45.82Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "EnemyScript.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "RelativeDocumentMoniker": "Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "RelativeToolTip": "Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAuwFMAAAABAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\quanliquaii\\Warrior\\EnemyScript.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T11:44:45.826Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "MenuItemHover.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\MenuItemHover.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs",
-              "RelativeToolTip": "Assets\\Scripts\\MenuItemHover.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAuwDgAAAABAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T11:44:45.831Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
+              "Title": "MenuItemHover.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\MenuItemHover.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\MenuItemHover.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\MenuItemHover.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\MenuItemHover.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T12:21:50.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlayerHealth.cs",
+              "DocumentMoniker": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
+              "ToolTip": "C:\\Users\\FPT\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
+              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAuwE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-29T06:35:46.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\AudioManager.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\AudioManager.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\AudioManager.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\AudioManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T12:47:20.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FPSSettingsController.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\FPSSettingsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-27T12:57:55.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "QuitGameButton.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\QuitGameButton.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\QuitGameButton.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\QuitGameButton.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\QuitGameButton.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\QuitGameButton.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\QuitGameButton.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-27T11:44:40.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MenuItemHover.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\MenuItemHover.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\MenuItemHover.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\MenuItemHover.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\MenuItemHover.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAuwEQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T12:21:50.601Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "DefaultSelectedButton.cs",
               "DocumentMoniker": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs",
-              "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs",
               "ToolTip": "C:\\Users\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs",
-              "RelativeToolTip": "Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\ADMIN\\OneDrive\\Ta\u0300i li\u00EA\u0323u\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\DefaultSelectedButton.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-27T15:45:29.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-27T15:45:29.005Z"
             }
           ]
         }

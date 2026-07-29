@@ -1,18 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class SkillManager : MonoBehaviour
 {
     [Header("Giao diện Level Up")]
     public GameObject levelUpPanel;
     public Button[] skillButtons;
-    public TextMeshProUGUI[] buttonTexts;
 
-    // --- THÊM MỚI: Mảng chứa các ô hình ảnh Icon trên UI ---
+    // Chỉ còn giữ lại ô chứa Ảnh Icon
     public Image[] skillIcons;
-    // --------------------------------------------------------
 
     [Header("Danh sách Kỹ năng trong Game")]
     public List<SkillData> allSkills;
@@ -48,24 +45,18 @@ public class SkillManager : MonoBehaviour
         {
             if (allSkills.Count == 0) return;
 
+            // Bốc ngẫu nhiên 1 kỹ năng
             int randomIndex = Random.Range(0, allSkills.Count);
             SkillData chosenSkill = allSkills[randomIndex];
 
-            // 1. Hiển thị chữ
-            if (buttonTexts[i] != null)
-            {
-                buttonTexts[i].text = "<b>" + chosenSkill.skillName + "</b>\n" + chosenSkill.description;
-            }
-
-            // 2. Hiển thị hình ảnh (Icon)
+            // Chỉ cập nhật hiển thị Hình Ảnh
             if (skillIcons.Length > i && skillIcons[i] != null)
             {
                 skillIcons[i].sprite = chosenSkill.skillIcon;
-
-                // Nếu kỹ năng không có ảnh, tự động ẩn ô ảnh đi cho đỡ lỗi hiển thị ô trắng
                 skillIcons[i].gameObject.SetActive(chosenSkill.skillIcon != null);
             }
 
+            // Gán sự kiện cho nút bấm
             skillButtons[i].onClick.RemoveAllListeners();
             skillButtons[i].onClick.AddListener(() => OnSelectSkill(chosenSkill));
         }
