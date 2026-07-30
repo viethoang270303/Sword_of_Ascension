@@ -2,22 +2,18 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [Header("Thông số viên đạn")]
-    [Tooltip("Tốc độ bay của đạn - Chỉnh số NHỎ đi để đạn bay CHẬM lại")]
-    public float speed = 3f;
-
-    [Tooltip("Thời gian tự hủy nếu không trúng ai (giây)")]
-    public float lifeTime = 5f;
+    public float speed = 15f;
+    public float lifeTime = 2f; // Tự hủy sau 2 giây nếu không trúng quái
 
     void Start()
     {
-        // Tự động xóa viên đạn sau vài giây để không làm nặng máy
         Destroy(gameObject, lifeTime);
     }
 
     void Update()
     {
-        // Lệnh bay thẳng về phía trước theo hướng nòng súng
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        // Bay thẳng theo hướng mặt của đạn
+        transform.Translate(Vector3.right * speed * Time.deltaTime);
     }
+    // Ghi chú: Việc trừ máu và tự hủy khi trúng quái đã được xử lý bên EnemyScript.
 }

@@ -3,76 +3,58 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Thông số máu")]
     public int maxHealth = 100;
     public int currentHealth;
     public Slider healthBar;
 
-    [Header("Hiệu ứng Sát thương")]
-    [Tooltip("Kéo Prefab con số nhảy dame vào đây")]
-    public GameObject damagePopupPrefab;
+    [Header("Thời gian bất tử sau khi bị đánh")]
+    public float invincibilityDuration = 0.5f;
+    private float nextDamageTime; // Biến đếm thời gian
 
-    [Header("Cài đặt sát thương")]
-    public float invincibilityTime = 0.5f;
-    private float invincibilityTimer;
+    private Animator anim;
 
     void Start()
     {
         currentHealth = maxHealth;
+        if (healthBar != null) healthBar.maxValue = maxHealth;
 
-        if (healthBar != null)
-        {
-            healthBar.maxValue = maxHealth;
-            healthBar.value = currentHealth;
-        }
-
-        // Đảm bảo mỗi khi bắt đầu game, thời gian luôn chạy bình thường (tránh bị kẹt 0f từ ván trước)
-        Time.timeScale = 1f;
+        anim = GetComponent<Animator>();
+        UpdateUI();
     }
 
-    void Update()
+    public void TakeDamage(int damage)
     {
-        if (invincibilityTimer > 0)
-        {
-            invincibilityTimer -= Time.deltaTime;
-        }
+        // 1. Nếu đã chết thì không tính nữa
+        if (currentHealth <= 0) return;
+
+        // 2. Nếu chưa hết thời gian bất tử thì KHÔNG nhận sát thương
+        if (Time.time < nextDamageTime) return;
+
+        // 3. Trừ máu và cài đặt thời gian bất tử cho lần bị đánh tiếp theo
+        currentHealth -= damage;
+        nextDamageTime = Time.time + invincibilityDuration;
+
+        UpdateUI();
+
+        if (currentHealth <= 0) Die();
     }
 
-    public void TakeDamage(int amount)
+    public void UpdateUI()
     {
-        if (invincibilityTimer > 0) return;
-
-        currentHealth -= amount;
-        invincibilityTimer = invincibilityTime;
-
-        if (healthBar != null)
-        {
-            healthBar.value = currentHealth;
-        }
-
-        // --- TẠO SỐ NHẢY DAME ---
-        if (damagePopupPrefab != null)
-        {
-            Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0f, 0.5f), 0);
-            GameObject popup = Instantiate(damagePopupPrefab, transform.position + randomOffset, Quaternion.identity);
-            popup.GetComponent<DamagePopup>().Setup(amount);
-        }
-        // ------------------------
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        if (healthBar != null) healthBar.value = currentHealth;
     }
 
     void Die()
     {
-        Debug.Log("Player đã hết máu! Game Over!");
+        Debug.Log("Game Over!");
 
-        // --- ĐÓNG BĂNG THỜI GIAN VÀ TOÀN BỘ GAMEPLAY ---
-        Time.timeScale = 0f;
-        // ----------------------------------------------
+        if (anim != null) anim.SetTrigger("Die");
 
-        Destroy(gameObject);
+        GetComponent<PlayerMovement>().enabled = false;
+
+        PlayerShoot shootScript = GetComponent<PlayerShoot>();
+        if (shootScript != null) shootScript.enabled = false;
+
+        GetComponent<Collider2D>().enabled = false;
     }
 }

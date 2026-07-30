@@ -2,26 +2,23 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    [Header("Thông số quái vật (Cơ bản)")]
+    [Header("Thông số cơ bản")]
     public float speed = 2f;
     public int health = 3;
 
-    [Header("Cài đặt Tiến hóa theo thời gian")]
-    [Tooltip("Mỗi phút trôi qua, quái cộng thêm bao nhiêu máu?")]
+    [Header("Tiến hóa")]
     public int healthBonusPerMinute = 2;
-    [Tooltip("Mỗi phút trôi qua, quái chạy nhanh thêm bao nhiêu?")]
     public float speedBonusPerMinute = 0.2f;
 
-    [Header("Cài đặt Đẩy lùi (Knockback)")]
+    [Header("Đẩy lùi (Knockback)")]
     public float knockbackForce = 5f;
     public float knockbackTime = 0.2f;
     private float knockbackCounter;
-
-    [Header("Cài đặt Chống đẩy Player")]
     public float stopDistance = 0.6f;
 
-    [Header("Vật phẩm rơi ra")]
+    [Header("Hiệu ứng & Vật phẩm")]
     public GameObject expGemPrefab;
+    public GameObject damagePopupPrefab; // Kéo Prefab chữ sát thương vào đây
 
     private Transform player;
     private Rigidbody2D rb;
@@ -32,20 +29,12 @@ public class EnemyScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // --- TÍNH NĂNG MỚI: ĐỌC ĐỒNG HỒ VÀ TỰ TIẾN HÓA ---
-        // Lấy tổng số thời gian đã chơi (tính bằng giây) chia cho 60 để ra số phút
         float minutesPassed = Time.timeSinceLevelLoad / 60f;
-
-        // Tự cộng thêm Máu và Tốc độ dựa trên số phút đã trôi qua
         health += Mathf.FloorToInt(minutesPassed * healthBonusPerMinute);
         speed += (minutesPassed * speedBonusPerMinute);
-        // -------------------------------------------------
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
+        if (playerObj != null) player = playerObj.transform;
     }
 
     void FixedUpdate()
@@ -61,24 +50,48 @@ public class EnemyScript : MonoBehaviour
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
             Vector2 direction = (player.position - transform.position).normalized;
 
-            if (distanceToPlayer > stopDistance)
-            {
-                rb.linearVelocity = direction * speed;
-            }
-            else
-            {
-                rb.linearVelocity = Vector2.zero;
-            }
+            if (distanceToPlayer > stopDistance) rb.linearVelocity = direction * speed;
+            else rb.linearVelocity = Vector2.zero;
 
             if (direction.x < 0) spriteRenderer.flipX = true;
             else if (direction.x > 0) spriteRenderer.flipX = false;
         }
-        else
+        else rb.linearVelocity = Vector2.zero;
+    }
+
+    // Khi Kiếm xoay chém trúng
+    public void TakeDamage(int damageAmount)
+    {
+        health -= damageAmount;
+        ShowDamagePopup(damageAmount);
+        CheckDeath();
+    }
+
+    // Hàm hiển thị số sát thương bay ra
+    private void ShowDamagePopup(int damageAmount)
+    {
+        if (damagePopupPrefab != null)
         {
-            rb.linearVelocity = Vector2.zero;
+            // Sinh ra chữ độc lập giữa không trung, KHÔNG dính vào quái
+            GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
+            DamagePopup popupScript = popup.GetComponent<DamagePopup>();
+            if (popupScript != null)
+            {
+                popupScript.Setup(damageAmount);
+            }
         }
     }
 
+    private void CheckDeath()
+    {
+        if (health <= 0)
+        {
+            if (expGemPrefab != null) Instantiate(expGemPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    // Khi Đạn bắn trúng
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<BulletScript>() != null)
@@ -87,13 +100,11 @@ public class EnemyScript : MonoBehaviour
             if (player != null)
             {
                 PlayerLevel pLevel = player.GetComponent<PlayerLevel>();
-                if (pLevel != null)
-                {
-                    damageToTake = pLevel.playerDamage;
-                }
+                if (pLevel != null) damageToTake = pLevel.playerDamage;
             }
 
             health -= damageToTake;
+            ShowDamagePopup(damageToTake); // Gọi số sát thương bay ra
 
             knockbackCounter = knockbackTime;
             Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
@@ -101,15 +112,7 @@ public class EnemyScript : MonoBehaviour
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
 
             Destroy(other.gameObject);
-
-            if (health <= 0)
-            {
-                if (expGemPrefab != null)
-                {
-                    Instantiate(expGemPrefab, transform.position, Quaternion.identity);
-                }
-                Destroy(gameObject);
-            }
+            CheckDeath();
         }
     }
 
@@ -125,10 +128,7 @@ public class EnemyScript : MonoBehaviour
 
     void DealDamage(GameObject target)
     {
-        PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(10);
-        }
+        PlayerHealth ph = target.GetComponent<PlayerHealth>();
+        if (ph != null) ph.TakeDamage(10);
     }
 }

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public enum SkillType
 {
-    IncreaseDamage,
-    IncreaseSpeed,
-    HealHP,
+    DanRat,
+    GiayGio,
+    BangCuuThuong,
     SpinningSword
 }
 
@@ -12,14 +12,8 @@ public enum SkillType
 public class SkillData
 {
     public string skillName;
-
-    [TextArea]
-    public string description;
-
-    // --- CẬP NHẬT MỚI: Thêm ô chứa hình ảnh Icon ---
+    [TextArea] public string description;
     public Sprite skillIcon;
-    // -----------------------------------------------
-
     public SkillType skillType;
-    public float value;
+    public float value; // Dùng để cộng dame, tốc độ... tùy loại skill
 }

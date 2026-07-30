@@ -1,36 +1,31 @@
 using UnityEngine;
-using TMPro;
+using TMPro; // Dùng TextMeshPro cho xịn
 
 public class DamagePopup : MonoBehaviour
 {
-    [Header("Cài đặt Hiệu ứng")]
-    public float moveSpeed = 2f;
-    public float destroyTime = 1f;
+    public float destroyTime = 0.5f;
+    public float floatSpeed = 2f;
 
-    private TextMeshPro textMesh;
-    private Color textColor;
+    [Header("Kéo TextMeshPro vào đây")]
+    public TextMeshPro textMesh;
 
-    void Awake()
+    void Start()
     {
-        textMesh = GetComponent<TextMeshPro>();
-        textColor = textMesh.color;
-
-        // --- ÉP CHỮ LUÔN HIỆN LÊN TRÊN CÙNG ---
-        // Dòng này giúp chữ đè lên cỏ, quái vật và cả nhân vật (khỏi cần chỉnh tay)
-        textMesh.sortingOrder = 100;
-
         Destroy(gameObject, destroyTime);
     }
 
     void Update()
     {
-        transform.position += Vector3.up * moveSpeed * Time.deltaTime;
-        textColor.a -= (1f / destroyTime) * Time.deltaTime;
-        textMesh.color = textColor;
+        // Chữ tự động bay lơ lửng lên trên
+        transform.position += Vector3.up * floatSpeed * Time.deltaTime;
     }
 
+    // Hàm này để quái vật truyền số sát thương vào
     public void Setup(int damageAmount)
     {
-        textMesh.text = "-" + damageAmount.ToString();
+        if (textMesh != null)
+        {
+            textMesh.text = "-" + damageAmount.ToString();
+        }
     }
 }

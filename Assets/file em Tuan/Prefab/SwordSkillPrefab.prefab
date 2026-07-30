@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordOrbit
   rotateSpeed: 250
-  orbitRadius: 1.5
+  orbitRadius: 1
   damage: 2
 --- !u!61 &8766571235767021092
 BoxCollider2D:
@@ -80,7 +80,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

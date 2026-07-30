@@ -2,51 +2,26 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Cài đặt sinh quái")]
-    public GameObject enemyPrefab; // Kéo Prefab quái vật vào đây
-    public float spawnRate = 2f;   // Thời gian sinh ra 1 con (giây)
-    public float spawnRadius = 8f; // Khoảng cách sinh quái so với Player
-
+    public GameObject enemyPrefab;
+    public float spawnRate = 2f;
+    public float spawnRadius = 10f;
     private float timer;
     private Transform player;
 
     void Start()
     {
-        // Quét tìm Player để lấy vị trí làm tâm điểm sinh quái
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            player = playerObj.transform;
-        }
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null) player = p.transform;
     }
 
     void Update()
     {
-        if (player == null) return; // Nếu Player chết, ngừng sinh quái
-
-        // Bộ đếm thời gian
         timer += Time.deltaTime;
-
-        if (timer >= spawnRate)
+        if (timer >= spawnRate && player != null)
         {
-            SpawnEnemy();
-            timer = 0f; // Đặt lại bộ đếm
+            Vector2 randomPos = (Vector2)player.position + Random.insideUnitCircle.normalized * spawnRadius;
+            Instantiate(enemyPrefab, randomPos, Quaternion.identity);
+            timer = 0;
         }
-    }
-
-    void SpawnEnemy()
-    {
-        // 1. Tạo một góc ngẫu nhiên từ 0 đến 360 độ (để quái xuất hiện tứ phía)
-        float randomAngle = Random.Range(0f, 360f);
-
-        // 2. Chuyển đổi góc đó thành hướng di chuyển (Vector2)
-        // Toán học lượng giác đơn giản để xác định một điểm trên đường tròn
-        Vector2 spawnDirection = new Vector2(Mathf.Cos(randomAngle), Mathf.Sin(randomAngle)).normalized;
-
-        // 3. Tính toán vị trí sinh ra = Vị trí Player + (Hướng x Khoảng cách)
-        Vector2 spawnPosition = (Vector2)player.position + spawnDirection * spawnRadius;
-
-        // 4. Sinh ra quái vật tại vị trí vừa tính toán
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
     }
 }

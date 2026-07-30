@@ -4,95 +4,96 @@ using UnityEngine.UI;
 
 public class SkillManager : MonoBehaviour
 {
-    [Header("Giao diện Level Up")]
     public GameObject levelUpPanel;
     public Button[] skillButtons;
-
-    // Chỉ còn giữ lại ô chứa Ảnh Icon
-    public Image[] skillIcons;
-
-    [Header("Danh sách Kỹ năng trong Game")]
+    public Image[] skillIcons; // Kéo các Image icon vào đây
     public List<SkillData> allSkills;
-
-    [Header("Kỹ năng Kiếm Xoay")]
     public GameObject swordSkillPrefab;
-    private bool hasSwordSkill = false;
 
+    private GameObject currentSword;
     private PlayerLevel playerLevel;
-    private PlayerMovement playerMovement;
+    private PlayerMovement playerMove;
     private PlayerHealth playerHealth;
 
     void Start()
     {
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null)
         {
-            playerLevel = playerObj.GetComponent<PlayerLevel>();
-            playerMovement = playerObj.GetComponent<PlayerMovement>();
-            playerHealth = playerObj.GetComponent<PlayerHealth>();
+            playerLevel = p.GetComponent<PlayerLevel>();
+            playerMove = p.GetComponent<PlayerMovement>();
+            playerHealth = p.GetComponent<PlayerHealth>();
         }
-
         if (levelUpPanel != null) levelUpPanel.SetActive(false);
     }
 
-    public void ShowLevelUpPanel()
+    public void ShowLevelUpUI()
     {
         Time.timeScale = 0f;
+        levelUpPanel.SetActive(true);
 
-        if (levelUpPanel != null) levelUpPanel.SetActive(true);
+        List<SkillData> randomSkills = GetRandomSkills(skillButtons.Length);
 
         for (int i = 0; i < skillButtons.Length; i++)
         {
-            if (allSkills.Count == 0) return;
-
-            // Bốc ngẫu nhiên 1 kỹ năng
-            int randomIndex = Random.Range(0, allSkills.Count);
-            SkillData chosenSkill = allSkills[randomIndex];
-
-            // Chỉ cập nhật hiển thị Hình Ảnh
-            if (skillIcons.Length > i && skillIcons[i] != null)
+            if (i < randomSkills.Count)
             {
-                skillIcons[i].sprite = chosenSkill.skillIcon;
-                skillIcons[i].gameObject.SetActive(chosenSkill.skillIcon != null);
-            }
+                skillButtons[i].gameObject.SetActive(true);
+                SkillData skill = randomSkills[i];
 
-            // Gán sự kiện cho nút bấm
-            skillButtons[i].onClick.RemoveAllListeners();
-            skillButtons[i].onClick.AddListener(() => OnSelectSkill(chosenSkill));
+                if (skillIcons.Length > i && skillIcons[i] != null)
+                {
+                    skillIcons[i].sprite = skill.skillIcon;
+                }
+
+                skillButtons[i].onClick.RemoveAllListeners();
+                skillButtons[i].onClick.AddListener(() => ChooseSkill(skill));
+            }
+            else
+            {
+                skillButtons[i].gameObject.SetActive(false);
+            }
         }
     }
 
-    void OnSelectSkill(SkillData skill)
+    public void ChooseSkill(SkillData skill)
     {
         switch (skill.skillType)
         {
-            case SkillType.IncreaseDamage:
-                if (playerLevel != null) playerLevel.playerDamage += (int)skill.value;
+            case SkillType.SpinningSword:
+                if (currentSword == null) currentSword = Instantiate(swordSkillPrefab);
                 break;
-
-            case SkillType.IncreaseSpeed:
-                if (playerMovement != null) playerMovement.speed += skill.value;
+            case SkillType.GiayGio:
+                if (playerMove != null) playerMove.speed += skill.value;
                 break;
-
-            case SkillType.HealHP:
+            case SkillType.BangCuuThuong:
                 if (playerHealth != null)
                 {
                     playerHealth.currentHealth += (int)skill.value;
                     if (playerHealth.currentHealth > playerHealth.maxHealth) playerHealth.currentHealth = playerHealth.maxHealth;
-                    if (playerHealth.healthBar != null) playerHealth.healthBar.value = playerHealth.currentHealth;
+                    playerHealth.UpdateUI();
                 }
                 break;
-
-            case SkillType.SpinningSword:
-                if (!hasSwordSkill && swordSkillPrefab != null && playerMovement != null)
-                {
-                    Instantiate(swordSkillPrefab, playerMovement.transform.position, Quaternion.identity);
-                    hasSwordSkill = true;
-                }
+            case SkillType.DanRat:
+                if (playerLevel != null) playerLevel.playerDamage += (int)skill.value;
                 break;
         }
 
-        if (levelUpPanel != null) levelUpPanel.SetActive(false);
+        levelUpPanel.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    private List<SkillData> GetRandomSkills(int amount)
+    {
+        List<SkillData> available = new List<SkillData>(allSkills);
+        List<SkillData> chosen = new List<SkillData>();
+
+        while (chosen.Count < amount && available.Count > 0)
+        {
+            int rand = Random.Range(0, available.Count);
+            chosen.Add(available[rand]);
+            available.RemoveAt(rand); // Chống lặp skill
+        }
+        return chosen;
     }
 }

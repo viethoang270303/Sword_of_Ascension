@@ -1,26 +1,20 @@
 using UnityEngine;
-using TMPro; // Bắt buộc để dùng TextMeshPro
+using TMPro; // Đổi sang thư viện TextMeshPro
 
 public class GameTimer : MonoBehaviour
 {
-    [Header("Giao diện Đồng hồ")]
+    // Đổi biến Text thành TextMeshProUGUI
     public TextMeshProUGUI timerText;
-
-    private float timePassed; // Biến đếm số giây đã trôi qua
 
     void Update()
     {
-        // Cộng dồn thời gian thực
-        timePassed += Time.deltaTime;
+        float t = Time.timeSinceLevelLoad;
+        int min = Mathf.FloorToInt(t / 60);
+        int sec = Mathf.FloorToInt(t % 60);
 
-        // Đổi ra số Phút và Giây
-        int minutes = Mathf.FloorToInt(timePassed / 60);
-        int seconds = Mathf.FloorToInt(timePassed % 60);
-
-        // Hiển thị lên màn hình theo chuẩn 00:00
         if (timerText != null)
         {
-            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timerText.text = string.Format("{0:00}:{1:00}", min, sec);
         }
     }
 }

@@ -156,12 +156,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6d5a0d3110505438e2a489629a6873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
-  speed: 2
   health: 2
-  knockbackForce: 5
-  knockbackTime: 0.2
-  stopDistance: 0.6
+  speed: 2
+  damageToPlayer: 10
   expGemPrefab: {fileID: 574087547811092190, guid: e80128f90ef92324999158e57611999e, type: 3}
+  healthPotionPrefab: {fileID: 9187615419504321209, guid: 99ec7df737fcdcf41a47fb5a8b0ff710, type: 3}
+  potionDropRate: 0.3
 --- !u!61 &2934856906819879463
 BoxCollider2D:
   m_ObjectHideFlags: 0
