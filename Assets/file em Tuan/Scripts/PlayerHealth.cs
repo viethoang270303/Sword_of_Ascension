@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     private float nextDamageTime; // Biến đếm thời gian
 
     private Animator anim;
+    public GameOverManager gameOverManager;
 
     void Start()
     {
@@ -56,5 +57,6 @@ public class PlayerHealth : MonoBehaviour
         if (shootScript != null) shootScript.enabled = false;
 
         GetComponent<Collider2D>().enabled = false;
+        if (gameOverManager != null) gameOverManager.ShowDeath();
     }
 }
