@@ -4,9 +4,12 @@ using UnityEngine.UI;
 
 public class SkillManager : MonoBehaviour
 {
+    [Header("UI Setup")]
     public GameObject levelUpPanel;
     public Button[] skillButtons;
-    public Image[] skillIcons; // Kéo các Image icon vào đây
+    public Image[] skillIcons;
+
+    [Header("Data & Prefab")]
     public List<SkillData> allSkills;
     public GameObject swordSkillPrefab;
 
@@ -24,6 +27,7 @@ public class SkillManager : MonoBehaviour
             playerMove = p.GetComponent<PlayerMovement>();
             playerHealth = p.GetComponent<PlayerHealth>();
         }
+
         if (levelUpPanel != null) levelUpPanel.SetActive(false);
     }
 
@@ -32,22 +36,26 @@ public class SkillManager : MonoBehaviour
         Time.timeScale = 0f;
         levelUpPanel.SetActive(true);
 
-        List<SkillData> randomSkills = GetRandomSkills(skillButtons.Length);
-
+        // Đã xóa hàm Random. Vòng lặp này sẽ gắn cố định Skill 1->4 vào Nút 1->4
         for (int i = 0; i < skillButtons.Length; i++)
         {
-            if (i < randomSkills.Count)
+            if (i < allSkills.Count)
             {
                 skillButtons[i].gameObject.SetActive(true);
-                SkillData skill = randomSkills[i];
 
-                if (skillIcons.Length > i && skillIcons[i] != null)
+                // BẮT BUỘC PHẢI CÓ DÒNG NÀY: Khóa biến index để tránh lỗi loạn nút (Closure bug)
+                int index = i;
+                SkillData chosenSkill = allSkills[index];
+
+                // Cập nhật Icon tương ứng
+                if (skillIcons.Length > index && skillIcons[index] != null)
                 {
-                    skillIcons[i].sprite = skill.skillIcon;
+                    skillIcons[index].sprite = chosenSkill.skillIcon;
                 }
 
-                skillButtons[i].onClick.RemoveAllListeners();
-                skillButtons[i].onClick.AddListener(() => ChooseSkill(skill));
+                // Xóa trí nhớ cũ của nút và gán chức năng mới
+                skillButtons[index].onClick.RemoveAllListeners();
+                skillButtons[index].onClick.AddListener(() => ChooseSkill(chosenSkill));
             }
             else
             {
@@ -60,40 +68,40 @@ public class SkillManager : MonoBehaviour
     {
         switch (skill.skillType)
         {
-            case SkillType.SpinningSword:
-                if (currentSword == null) currentSword = Instantiate(swordSkillPrefab);
-                break;
-            case SkillType.GiayGio:
-                if (playerMove != null) playerMove.speed += skill.value;
-                break;
-            case SkillType.BangCuuThuong:
+            case SkillType.HoiMau:
                 if (playerHealth != null)
                 {
                     playerHealth.currentHealth += (int)skill.value;
-                    if (playerHealth.currentHealth > playerHealth.maxHealth) playerHealth.currentHealth = playerHealth.maxHealth;
+                    if (playerHealth.currentHealth > playerHealth.maxHealth)
+                        playerHealth.currentHealth = playerHealth.maxHealth;
                     playerHealth.UpdateUI();
                 }
                 break;
-            case SkillType.DanRat:
-                if (playerLevel != null) playerLevel.playerDamage += (int)skill.value;
+
+            case SkillType.TangDameDan:
+                if (playerLevel != null)
+                {
+                    playerLevel.playerDamage += (int)skill.value;
+                }
+                break;
+
+            case SkillType.TangTocChay:
+                if (playerMove != null)
+                {
+                    playerMove.speed += skill.value;
+                }
+                break;
+
+            case SkillType.KiemXoay:
+                if (currentSword == null && playerMove != null)
+                {
+                    currentSword = Instantiate(swordSkillPrefab, playerMove.transform.position, Quaternion.identity);
+                }
                 break;
         }
 
+        // Ẩn bảng và tiếp tục game
         levelUpPanel.SetActive(false);
         Time.timeScale = 1f;
-    }
-
-    private List<SkillData> GetRandomSkills(int amount)
-    {
-        List<SkillData> available = new List<SkillData>(allSkills);
-        List<SkillData> chosen = new List<SkillData>();
-
-        while (chosen.Count < amount && available.Count > 0)
-        {
-            int rand = Random.Range(0, available.Count);
-            chosen.Add(available[rand]);
-            available.RemoveAt(rand); // Chống lặp skill
-        }
-        return chosen;
     }
 }

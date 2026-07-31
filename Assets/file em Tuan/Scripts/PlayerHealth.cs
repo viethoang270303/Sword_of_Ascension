@@ -7,9 +7,15 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public Slider healthBar;
 
-    [Header("Thời gian bất tử sau khi bị đánh")]
+    [Header("Thời gian bất tử")]
     public float invincibilityDuration = 0.5f;
-    private float nextDamageTime; // Biến đếm thời gian
+    private float nextDamageTime;
+
+    [Header("Hiệu ứng Sát thương (Chữ nổi)")]
+    public GameObject damagePopupPrefab;
+
+    [Header("UI Game Over")]
+    public GameObject gameOverPanel; // Sau này bạn tạo bảng Game Over thì kéo vào đây
 
     private Animator anim;
 
@@ -20,23 +26,39 @@ public class PlayerHealth : MonoBehaviour
 
         anim = GetComponent<Animator>();
         UpdateUI();
+
+        // Ẩn bảng Game Over lúc mới vào game
+        if (gameOverPanel != null) gameOverPanel.SetActive(false);
     }
 
     public void TakeDamage(int damage)
     {
-        // 1. Nếu đã chết thì không tính nữa
         if (currentHealth <= 0) return;
-
-        // 2. Nếu chưa hết thời gian bất tử thì KHÔNG nhận sát thương
         if (Time.time < nextDamageTime) return;
 
-        // 3. Trừ máu và cài đặt thời gian bất tử cho lần bị đánh tiếp theo
         currentHealth -= damage;
         nextDamageTime = Time.time + invincibilityDuration;
+
+        ShowDamagePopup(damage);
 
         UpdateUI();
 
         if (currentHealth <= 0) Die();
+    }
+
+    private void ShowDamagePopup(int damageAmount)
+    {
+        if (damagePopupPrefab != null)
+        {
+            Vector3 spawnPos = transform.position + Vector3.up * 0.5f;
+            GameObject popup = Instantiate(damagePopupPrefab, spawnPos, Quaternion.identity);
+
+            DamagePopup popupScript = popup.GetComponent<DamagePopup>();
+            if (popupScript != null)
+            {
+                popupScript.Setup(damageAmount, true);
+            }
+        }
     }
 
     public void UpdateUI()
@@ -46,15 +68,21 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Game Over!");
-
+        // 1. Kích hoạt hoạt ảnh chết
         if (anim != null) anim.SetTrigger("Die");
 
+        // 2. Tắt các kịch bản điều khiển
         GetComponent<PlayerMovement>().enabled = false;
 
         PlayerShoot shootScript = GetComponent<PlayerShoot>();
         if (shootScript != null) shootScript.enabled = false;
 
         GetComponent<Collider2D>().enabled = false;
+
+        // 3. Hiện bảng Game Over (nếu bạn có kéo vào)
+        if (gameOverPanel != null) gameOverPanel.SetActive(true);
+
+        // 4. ĐÓNG BĂNG TOÀN BỘ GAME (Quái vật, đạn, thời gian dừng hết)
+        Time.timeScale = 0f;
     }
 }
