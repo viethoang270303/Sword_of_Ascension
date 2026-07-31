@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject gameOverPanel; // Sau này bạn tạo bảng Game Over thì kéo vào đây
 
     private Animator anim;
+    public GameOverManager gameOverManager;
 
     void Start()
     {
@@ -78,11 +79,18 @@ public class PlayerHealth : MonoBehaviour
         if (shootScript != null) shootScript.enabled = false;
 
         GetComponent<Collider2D>().enabled = false;
+        // Prefer using a centralized game-over manager if present
+        if (gameOverManager != null)
+        {
+            gameOverManager.ShowDeath();
+        }
+        else
+        {
+            // 3. Hiện bảng Game Over (nếu bạn có kéo vào)
+            if (gameOverPanel != null) gameOverPanel.SetActive(true);
 
-        // 3. Hiện bảng Game Over (nếu bạn có kéo vào)
-        if (gameOverPanel != null) gameOverPanel.SetActive(true);
-
-        // 4. ĐÓNG BĂNG TOÀN BỘ GAME (Quái vật, đạn, thời gian dừng hết)
-        Time.timeScale = 0f;
+            // 4. ĐÓNG BĂNG TOÀN BỘ GAME (Quái vật, đạn, thời gian dừng hết)
+            Time.timeScale = 0f;
+        }
     }
 }
