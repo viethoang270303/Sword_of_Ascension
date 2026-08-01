@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\MenuItemHover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\QuitGameButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\QuitGameButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,6 +31,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "MenuItemHover.cs",
+              "DocumentMoniker": "C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\MenuItemHover.cs",
+              "ToolTip": "C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\MenuItemHover.cs",
+              "RelativeToolTip": "Assets\\Scripts\\MenuItemHover.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-01T19:47:39.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "QuitGameButton.cs",
               "DocumentMoniker": "C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Scripts\\QuitGameButton.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\QuitGameButton.cs",
@@ -39,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GameOverManager.cs",
               "DocumentMoniker": "C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\nvh\\Scripts\\GameOverManager.cs",
               "RelativeDocumentMoniker": "Assets\\nvh\\Scripts\\GameOverManager.cs",
@@ -50,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
               "RelativeDocumentMoniker": "Assets\\file em Tuan\\Scripts\\PlayerHealth.cs",
