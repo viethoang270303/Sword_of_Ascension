@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Settings/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Main Menu/Main Menu.unity
+    path: Assets/Scenes/Main Menu.unity
     guid: f49eb77aa178c2e4fae46f91edc775bc
+  - enabled: 1
+    path: Assets/Scenes/Persistent.unity
+    guid: 725a0ada02c63a443aec179e855ba017
   - enabled: 1
     path: Assets/Scenes/Manchoi1.unity
     guid: 10a0201521bfb2b48a2e63a5605c74c3
