@@ -1,82 +1,114 @@
 using UnityEngine;
-using UnityEngine.UI; // Thư viện bắt buộc để can thiệp vào ảnh của nút
-using UnityEngine.SceneManagement; // Thư viện để chuyển Scene (Menu)
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems; // Thư viện bắt buộc để dùng phím/tay cầm
 
 public class PauseManager : MonoBehaviour
 {
-    [Header("Bảng Cài Đặt (Kéo Panel vào đây)")]
-    public GameObject settingPanel;
+    [Header("--- Các Bảng UI ---")]
+    public GameObject settingPanel;   // Kéo bảng SettingPanel vào đây
+    public GameObject tutorialPanel;  // Kéo bảng TutorialPanel (Hướng dẫn) vào đây
 
-    [Header("--- Nút Tạm Dừng ---")]
-    public Image pauseButtonImage; // Kéo Image của nút Tạm Dừng vào đây
-    public Sprite pauseSprite;     // Kéo ảnh 2 GẠCH vào đây
-    public Sprite playSprite;      // Kéo ảnh TAM GIÁC vào đây
-    private bool isPaused = false;
+    [Header("--- Nút Tạm Dừng (Ngoài màn hình) ---")]
+    public Image pauseButtonImage;
+    public Sprite pauseSprite;
+    public Sprite playSprite;
 
-    [Header("--- Nút Âm Thanh ---")]
-    public Image soundButtonImage; // Kéo Image của nút Cái Loa vào đây
-    public Sprite soundOnSprite;   // Kéo ảnh CÁI LOA vào đây
-    public Sprite soundOffSprite;  // Kéo ảnh DẤU X ĐỎ vào đây
-    private bool isMuted = false;
+    [Header("--- Hỗ trợ Tay cầm / Bàn phím ---")]
+    public GameObject firstSelectedButton; // Kéo nút "Tiếp Tục" vào đây để mặc định chọn khi mở bảng
 
     void Start()
     {
-        // Ẩn bảng Setting (Panel) khi mới vào game
-        if (settingPanel != null)
-        {
-            settingPanel.SetActive(false);
-        }
+        // Đảm bảo các bảng luôn ẩn khi mới vào game
+        if (settingPanel != null) settingPanel.SetActive(false);
+        if (tutorialPanel != null) tutorialPanel.SetActive(false);
     }
 
-    // 1. Hàm cho nút TẠM DỪNG
-    public void TogglePause()
+    void Update()
     {
-        isPaused = !isPaused;
+        // Bấm Esc (Bàn phím) hoặc phím Cancel/Start (Tay cầm) để Bật/Tắt Setting
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Cancel"))
+        {
+            // Nếu bảng Hướng dẫn đang mở -> Ưu tiên đóng bảng Hướng dẫn trước
+            if (tutorialPanel != null && tutorialPanel.activeSelf)
+            {
+                CloseTutorial();
+                return;
+            }
 
-        if (isPaused)
-        {
-            Time.timeScale = 0f; // Dừng game
-            if (pauseButtonImage != null) pauseButtonImage.sprite = playSprite; // Đổi sang ảnh Tam Giác
-        }
-        else
-        {
-            Time.timeScale = 1f; // Tiếp tục game
-            if (pauseButtonImage != null) pauseButtonImage.sprite = pauseSprite; // Đổi lại ảnh 2 Gạch
+            // Nếu bảng Setting đang mở -> Đóng nó lại và tiếp tục game
+            if (settingPanel != null && settingPanel.activeSelf)
+            {
+                ResumeGame();
+            }
+            // Nếu chưa mở gì -> Mở bảng Setting và tạm dừng
+            else
+            {
+                OpenSettingsAndPause();
+            }
         }
     }
 
-    // 2. Hàm cho nút BÁNH RĂNG
-    public void ToggleSettingsPanel()
+    // --- 1. MỞ BẢNG SETTING (Tạm dừng game) ---
+    public void OpenSettingsAndPause()
     {
-        if (settingPanel != null)
+        Time.timeScale = 0f; // Đóng băng thời gian
+
+        if (settingPanel != null) settingPanel.SetActive(true); // Hiện bảng Setting
+
+        // Đổi icon Tạm Dừng thành icon Play
+        if (pauseButtonImage != null) pauseButtonImage.sprite = playSprite;
+
+        // Hỗ trợ tay cầm: Tự động trỏ Focus vào nút đầu tiên (Nút Tiếp Tục)
+        if (firstSelectedButton != null)
         {
-            // Kiểm tra xem bảng đang bật hay tắt để đảo ngược lại
-            bool isActive = settingPanel.activeSelf;
-            settingPanel.SetActive(!isActive);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
         }
     }
 
-    // 3. Hàm cho nút CÁI LOA
-    public void ToggleSound()
+    // --- 2. NÚT: TIẾP TỤC GAME ---
+    public void ResumeGame()
     {
-        isMuted = !isMuted;
+        Time.timeScale = 1f; // Mở khóa thời gian
 
-        if (isMuted)
+        if (settingPanel != null) settingPanel.SetActive(false); // Ẩn bảng Setting
+        if (tutorialPanel != null) tutorialPanel.SetActive(false); // Ẩn luôn bảng Hướng dẫn (nếu đang mở)
+
+        // Trả lại icon 2 gạch cho nút Tạm Dừng
+        if (pauseButtonImage != null) pauseButtonImage.sprite = pauseSprite;
+    }
+
+    // --- 3. THANH TRƯỢT: VOLUME ---
+    public void ChangeVolume(float volumeValue)
+    {
+        AudioListener.volume = volumeValue;
+    }
+
+    // --- 4. HƯỚNG DẪN ---
+    public void OpenTutorial()
+    {
+        if (tutorialPanel != null) tutorialPanel.SetActive(true); // Hiện bảng hướng dẫn
+    }
+
+    public void CloseTutorial()
+    {
+        if (tutorialPanel != null) tutorialPanel.SetActive(false); // Ẩn bảng hướng dẫn
+
+        // Trả focus về lại nút "Tiếp Tục" trên SettingPanel để người chơi dùng tay cầm không bị đơ
+        if (firstSelectedButton != null && settingPanel.activeSelf)
         {
-            AudioListener.volume = 0f; // Tắt toàn bộ tiếng
-            if (soundButtonImage != null) soundButtonImage.sprite = soundOffSprite; // Đổi sang ảnh X Đỏ
-        }
-        else
-        {
-            AudioListener.volume = 1f; // Bật lại tiếng
-            if (soundButtonImage != null) soundButtonImage.sprite = soundOnSprite; // Đổi lại ảnh Cái Loa
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstSelectedButton);
         }
     }
 
-    // (Dự phòng) Hàm cho nút VỀ MENU nếu bạn gắn trong Setting Panel
+    // --- 5. NÚT: VỀ MENU CHÍNH ---
     public void GoToMainMenu()
     {
-        Time.timeScale = 1f; // Bắt buộc mở khóa thời gian trước khi chuyển cảnh
-        SceneManager.LoadScene("MainMenu"); // Đổi "MainMenu" thành tên file Scene menu của bạn
+        Time.timeScale = 1f; // BẮT BUỘC phải mở khóa thời gian trước khi chuyển Scene
+
+        // Đã sửa lại có dấu cách chuẩn xác theo tên file của bạn
+        SceneManager.LoadScene("Main Menu");
     }
 }
