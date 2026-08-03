@@ -2,26 +2,46 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public float spawnRate = 2f;
-    public float spawnRadius = 10f;
-    private float timer;
-    private Transform player;
+    [Header("--- Danh sách Quái vật ---")]
+    [Tooltip("Bạn có thể kéo nhiều loại quái vật vào đây")]
+    public GameObject[] enemyPrefabs;
 
-    void Start()
-    {
-        GameObject p = GameObject.FindGameObjectWithTag("Player");
-        if (p != null) player = p.transform;
-    }
+    [Header("--- Thông số đẻ quái ---")]
+    public float spawnRate = 2f;    // Thời gian chờ để đẻ con tiếp theo
+    public float spawnRadius = 8f;  // Bán kính khu vực đẻ quái
+
+    private float nextSpawnTime = 0f;
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= spawnRate && player != null)
+        // Kiểm tra nếu đã đến thời gian đẻ quái
+        if (Time.time >= nextSpawnTime)
         {
-            Vector2 randomPos = (Vector2)player.position + Random.insideUnitCircle.normalized * spawnRadius;
-            Instantiate(enemyPrefab, randomPos, Quaternion.identity);
-            timer = 0;
+            SpawnEnemy();
+            nextSpawnTime = Time.time + spawnRate; // Cài đặt thời gian cho lần đẻ tiếp theo
         }
+    }
+
+    void SpawnEnemy()
+    {
+        // Đề phòng trường hợp bạn quên kéo quái vật vào, code sẽ tự dừng để không báo lỗi
+        if (enemyPrefabs == null || enemyPrefabs.Length == 0) return;
+
+        // 1. CHỌN NGẪU NHIÊN 1 CON QUÁI VẬT TRONG DANH SÁCH
+        int randomIndex = Random.Range(0, enemyPrefabs.Length);
+        GameObject enemyToSpawn = enemyPrefabs[randomIndex];
+
+        // 2. Tìm một vị trí ngẫu nhiên xung quanh máy sinh quái (trong phạm vi Radius)
+        Vector2 randomPosition = (Vector2)transform.position + Random.insideUnitCircle * spawnRadius;
+
+        // 3. Đẻ con quái ra bản đồ
+        Instantiate(enemyToSpawn, randomPosition, Quaternion.identity);
+    }
+
+    // Vẽ một vòng tròn màu xanh lá cây trong cửa sổ Scene để bạn dễ dàng căn chỉnh bán kính đẻ quái
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, spawnRadius);
     }
 }
