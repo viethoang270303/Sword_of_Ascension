@@ -125,9 +125,9 @@ TextureImporter:
         x: 115
         y: 0
         width: 91
-        height: 92
+        height: 107
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,55 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: demon_cleave_6_1
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 73
-        width: 13
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f11453d85133fb4c0800000000000000
-      internalID: -4269637754067533537
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon_cleave_6_2
-      rect:
-        serializedVersion: 2
-        x: 183
-        y: 74
-        width: 12
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4df612c31bd63c4b0800000000000000
-      internalID: -5421368918438481964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 900e1def517603a4aa4353c997ed5041
     internalID: 0
     vertices: []
     indices: 

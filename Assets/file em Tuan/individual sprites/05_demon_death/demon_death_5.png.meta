@@ -125,9 +125,9 @@ TextureImporter:
         x: 106
         y: 0
         width: 90
-        height: 101
+        height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -140,55 +140,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: demon_death_5_1
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 90
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 23178b9e9e11b2e00800000000000000
-      internalID: 1020929436875780402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon_death_5_2
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 98
-        width: 11
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb57255f4ddb324a0800000000000000
-      internalID: -6619238304957958722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f35b207b626f3df4a9ea3e93fe4184ec
     internalID: 0
     vertices: []
     indices: 

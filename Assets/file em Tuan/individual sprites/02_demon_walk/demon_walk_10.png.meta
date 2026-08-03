@@ -128,9 +128,9 @@ TextureImporter:
         x: 107
         y: 0
         width: 75
-        height: 89
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -143,77 +143,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: demon_walk_10_1
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 87
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b72b3825544a9c10800000000000000
-      internalID: 2061034912013297591
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon_walk_10_2
-      rect:
-        serializedVersion: 2
-        x: 123
-        y: 87
-        width: 10
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 10b2b48df9a2452e0800000000000000
-      internalID: -2138037057077171455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon_walk_10_3
-      rect:
-        serializedVersion: 2
-        x: 151
-        y: 70
-        width: 27
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e226030788511d750800000000000000
-      internalID: 6327862627174212142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fb227f6136d85b749a56008a033a70c1
     internalID: 0
     vertices: []
     indices: 
