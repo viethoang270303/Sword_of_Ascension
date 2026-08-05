@@ -1,20 +1,24 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DemonBoss : MonoBehaviour
 {
     [Header("--- Chỉ số của Boss ---")]
-    public int maxHealth = 1000;         // Máu tối đa của Boss
+    public int maxHealth = 1000;         // Máu tối đa
     private int currentHealth;           // Máu hiện tại
 
-    public float speed = 2f;             // Tốc độ đi bộ
-    public float attackRange = 1.5f;     // Khoảng cách vung rìu
-    public float attackCooldown = 2f;    // Thời gian nghỉ giữa 2 nhát chém
+    public float speed = 2f;             // Tốc độ di chuyển
+    public float attackRange = 2.5f;     // Tầm đánh (Giữ ở 2.5 hoặc 3)
+    public float attackCooldown = 2f;    // Thời gian nghỉ giữa 2 lần chém
+    public int damageToPlayer = 50;      // Lượng sát thương gây ra cho nhân vật chính
 
     private float nextAttackTime = 0f;
-    private bool isDead = false;         // Trạng thái sống/chết
+    private bool isDead = false;
 
-    [Header("--- Liên kết ---")]
-    public Transform player;             // Mục tiêu (Nhân vật của bạn)
+    [Header("--- Liên kết UI & Mục tiêu ---")]
+    public Transform player;
+    public Slider healthBar;
+    public GameObject healthBarCanvas;
 
     private Animator anim;
     private SpriteRenderer sr;
@@ -23,14 +27,21 @@ public class DemonBoss : MonoBehaviour
 
     void Start()
     {
-        // Khởi tạo máu và lấy các Component trên người Boss
         currentHealth = maxHealth;
+
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
 
-        // Tự động tìm nhân vật chính nếu bạn quên kéo vào
+        // Khởi tạo thanh máu
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHealth;
+            healthBar.value = currentHealth;
+        }
+
+        // Radar tự động tìm người chơi (Nhân vật của bạn phải được gắn tag "Player")
         if (player == null)
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
@@ -40,23 +51,25 @@ public class DemonBoss : MonoBehaviour
 
     void Update()
     {
-        // Nếu Boss đã chết hoặc không tìm thấy người chơi -> Ngừng hoạt động
         if (isDead || player == null) return;
 
+        // Tính khoảng cách từ Boss đến người chơi
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         // --- HƯỚNG MẶT CỦA BOSS ---
-        // Lật ảnh để Boss luôn nhìn về phía người chơi
         if (player.position.x > transform.position.x)
-            sr.flipX = false;
-        else if (player.position.x < transform.position.x)
+        {
             sr.flipX = true;
+        }
+        else if (player.position.x < transform.position.x)
+        {
+            sr.flipX = false;
+        }
 
-        // --- LOGIC RƯỢT ĐUỔI & TẤN CÔNG ---
+        // --- LOGIC CHIẾN ĐẤU & DI CHUYỂN ---
         if (distanceToPlayer <= attackRange)
         {
-            // Trong tầm đánh: Dừng đi bộ và bổ búa
-            anim.SetBool("isWalking", false);
+            anim.SetBool("isWalking", false); // Dừng lại để chém
 
             if (Time.time >= nextAttackTime)
             {
@@ -66,56 +79,86 @@ public class DemonBoss : MonoBehaviour
         }
         else
         {
-            // Ngoài tầm đánh: Chạy tới chỗ người chơi
-            anim.SetBool("isWalking", true);
+            anim.SetBool("isWalking", true); // Tiếp tục chạy theo
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
     }
 
     void Attack()
     {
-        // Kích hoạt animation chém (Boss_Cleave)
+        // 1. Chạy animation vung búa
         anim.SetTrigger("attack");
 
-        // TODO: Chỗ này gọi hàm trừ máu của người chơi (Player)
-        Debug.Log("Boss Demon đang bổ rìu!");
+        // 2. Gây sát thương cho Player (gọi hàm TakeDamage trên người chơi)
+        if (player != null)
+        {
+            player.SendMessage("TakeDamage", damageToPlayer, SendMessageOptions.DontRequireReceiver);
+        }
     }
 
-    // --- HỆ THỐNG NHẬN SÁT THƯƠNG ---
-    // Gọi hàm này từ vũ khí của người chơi khi chém trúng Boss
+    // --- HỆ THỐNG NHẬN DIỆN ĐẠN BẮN TRÚNG ---
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isDead) return;
+
+        // Kiểm tra xem vật thể chạm vào Boss có mang script BulletScript không
+        BulletScript dan = collision.GetComponent<BulletScript>();
+
+        if (dan != null)
+        {
+            // Trừ 20 máu (Có thể thay đổi số lượng máu bị trừ tại đây)
+            TakeDamage(20);
+
+            // Phá hủy viên đạn ngay sau khi chạm vào Boss
+            Destroy(collision.gameObject);
+        }
+    }
+
+    // --- BOSS BỊ TRỪ MÁU ---
     public void TakeDamage(int damageAmount)
     {
-        if (isDead) return; // Nếu chết rồi thì đánh không mất máu nữa
+        if (isDead) return;
 
         currentHealth -= damageAmount;
 
-        // Kích hoạt animation giật mình (Boss_Hit)
-        anim.SetTrigger("hit");
+        // Cập nhật thanh máu UI
+        if (healthBar != null)
+        {
+            healthBar.value = currentHealth;
+        }
 
-        Debug.Log("Boss bị chém! Máu còn: " + currentHealth);
+        anim.SetTrigger("hit"); // Chạy animation bị đau
 
-        // Kiểm tra xem Boss đã cạn máu chưa
+        // Kiểm tra xem Boss đã chết chưa
         if (currentHealth <= 0)
         {
             Die();
         }
     }
 
+    // --- BOSS BAY MÀU VÀ GỌI BẢNG VICTORY ---
     void Die()
     {
         isDead = true;
+        anim.SetTrigger("die"); // Chạy animation gục ngã
 
-        // Kích hoạt animation gục ngã (Boss_Death)
-        anim.SetTrigger("die");
-
-        // Tắt trọng lực và tắt va chạm để Boss nằm hẳn xuống đất
-        // Người chơi có thể đi xuyên qua xác Boss
+        // Tắt va chạm vật lý để người chơi và đạn bay xuyên qua xác Boss
         if (rb != null) rb.simulated = false;
         if (coll != null) coll.enabled = false;
 
-        // Tắt bộ não AI
-        this.enabled = false;
+        // Ẩn thanh máu đi
+        if (healthBarCanvas != null)
+        {
+            healthBarCanvas.SetActive(false);
+        }
 
-        Debug.Log("DEMON BOSS ĐÃ BỊ TIÊU DIỆT!");
+        // --- GỌI HÀM BẬT BẢNG CHIẾN THẮNG ---
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.ShowVictoryScreen();
+        }
+
+        // Tắt kịch bản này đi để Boss không hoạt động nữa
+        this.enabled = false;
     }
 }
