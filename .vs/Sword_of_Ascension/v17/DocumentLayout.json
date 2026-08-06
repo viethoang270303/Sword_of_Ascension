@@ -1,12 +1,137 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\pc\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{09942EBB-27F9-9F41-A590-75EEE169EE6C}|Firebase.App.Internal.csproj|c:\\users\\khanh\\onedrive\\documents\\github\\sword_of_ascension\\assets\\firebase\\firebaseapp\\internal\\firebase.app.internal.asmdef||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{09942EBB-27F9-9F41-A590-75EEE169EE6C}|Firebase.App.Internal.csproj|solutionrelative:assets\\firebase\\firebaseapp\\internal\\firebase.app.internal.asmdef||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09942EBB-27F9-9F41-A590-75EEE169EE6C}|Firebase.App.Internal.csproj|c:\\users\\khanh\\onedrive\\documents\\github\\sword_of_ascension\\assets\\firebase\\firebaseapp\\internal\\firebaseinterops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09942EBB-27F9-9F41-A590-75EEE169EE6C}|Firebase.App.Internal.csproj|solutionrelative:assets\\firebase\\firebaseapp\\internal\\firebaseinterops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\FirebaseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Firebase\\FirebaseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\RegisterController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Firebase\\RegisterController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\FirebaseErrorHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Firebase\\Script\\FirebaseErrorHelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\LoginController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Firebase\\Script\\LoginController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\SceneController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Firebase\\Script\\SceneController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Firebase.App.Internal.asmdef",
+              "DocumentMoniker": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\FirebaseApp\\Internal\\Firebase.App.Internal.asmdef",
+              "RelativeDocumentMoniker": "Assets\\Firebase\\FirebaseApp\\Internal\\Firebase.App.Internal.asmdef",
+              "ToolTip": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\FirebaseApp\\Internal\\Firebase.App.Internal.asmdef",
+              "RelativeToolTip": "Assets\\Firebase\\FirebaseApp\\Internal\\Firebase.App.Internal.asmdef",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001874|",
+              "WhenOpened": "2026-08-06T06:08:10.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FirebaseInterops.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\FirebaseApp\\Internal\\FirebaseInterops.cs",
+              "RelativeDocumentMoniker": "Assets\\Firebase\\FirebaseApp\\Internal\\FirebaseInterops.cs",
+              "ToolTip": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\FirebaseApp\\Internal\\FirebaseInterops.cs",
+              "RelativeToolTip": "Assets\\Firebase\\FirebaseApp\\Internal\\FirebaseInterops.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAApwF4AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T06:07:22.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SceneController.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\SceneController.cs",
+              "RelativeDocumentMoniker": "Assets\\Firebase\\Script\\SceneController.cs",
+              "ToolTip": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\SceneController.cs",
+              "RelativeToolTip": "Assets\\Firebase\\Script\\SceneController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T05:57:15.505Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\LoginController.cs",
+              "RelativeDocumentMoniker": "Assets\\Firebase\\Script\\LoginController.cs",
+              "ToolTip": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\LoginController.cs",
+              "RelativeToolTip": "Assets\\Firebase\\Script\\LoginController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAiwEIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T05:52:15.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FirebaseErrorHelper.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\FirebaseErrorHelper.cs",
+              "RelativeDocumentMoniker": "Assets\\Firebase\\Script\\FirebaseErrorHelper.cs",
+              "ToolTip": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\Script\\FirebaseErrorHelper.cs",
+              "RelativeToolTip": "Assets\\Firebase\\Script\\FirebaseErrorHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T05:49:49.144Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegisterController.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\RegisterController.cs",
+              "RelativeDocumentMoniker": "Assets\\Firebase\\RegisterController.cs",
+              "ToolTip": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\RegisterController.cs",
+              "RelativeToolTip": "Assets\\Firebase\\RegisterController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T05:45:38.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FirebaseManager.cs",
+              "DocumentMoniker": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\FirebaseManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Firebase\\FirebaseManager.cs",
+              "ToolTip": "C:\\Users\\khanh\\OneDrive\\Documents\\GitHub\\Sword_of_Ascension\\Assets\\Firebase\\FirebaseManager.cs",
+              "RelativeToolTip": "Assets\\Firebase\\FirebaseManager.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T05:42:47.741Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
