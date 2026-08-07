@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.esotericsoftware.spine.spine-unity": {
-      "version": "file:E:/spine-runtimes-3.8/spine-unity/Assets/Spine",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {}
-    },
     "com.unity.2d.animation": {
       "version": "13.0.5",
       "depth": 0,
