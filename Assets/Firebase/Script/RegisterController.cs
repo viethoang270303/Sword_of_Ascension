@@ -2,6 +2,7 @@
 using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RegisterController : MonoBehaviour
 {
@@ -17,10 +18,9 @@ public class RegisterController : MonoBehaviour
         string password = passwordInput.text;
         string confirmPassword = confirmPasswordInput.text;
 
-        // Kiểm tra dữ liệu đầu vào cơ bản
         if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
         {
-            ShowMessage("Vui lòng nhập đầy đủ Email và Mật khẩu.");
+            ShowMessage("Vui lòng nhập Email và Mật khẩu.");
             return;
         }
 
@@ -36,9 +36,15 @@ public class RegisterController : MonoBehaviour
             return;
         }
 
+        if (FirebaseManager.Instance == null)
+        {
+            ShowMessage("Không tìm thấy FirebaseManager.");
+            return;
+        }
+
         if (!FirebaseManager.Instance.IsFirebaseReady)
         {
-            ShowMessage("Firebase chưa sẵn sàng, vui lòng thử lại.");
+            ShowMessage("Firebase chưa sẵn sàng.");
             return;
         }
 
@@ -50,29 +56,50 @@ public class RegisterController : MonoBehaviour
         ShowMessage("Đang tạo tài khoản...");
 
         FirebaseAuth auth = FirebaseManager.Instance.Auth;
-        auth.CreateUserWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCanceled || task.IsFaulted)
+
+        auth.CreateUserWithEmailAndPasswordAsync(email, password)
+            .ContinueWithOnMainThread(task =>
             {
-                string errorMessage = FirebaseErrorHelper.GetErrorMessage(task.Exception);
-                ShowMessage(errorMessage);
-                return;
-            }
+                if (task.IsCanceled)
+                {
+                    ShowMessage("Đăng ký đã bị hủy.");
+                    return;
+                }
 
-            AuthResult result = task.Result;
-            FirebaseUser newUser = result.User;
-            Debug.Log($"[Register] Tạo tài khoản thành công: {newUser.Email}");
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("===== FIREBASE ERROR =====");
+                    Debug.LogError(task.Exception);
 
-            ShowMessage("Đăng ký thành công! Đang chuyển sang màn hình đăng nhập...");
+                    foreach (var ex in task.Exception.Flatten().InnerExceptions)
+                    {
+                        Debug.LogError(ex);
+                    }
 
-            // TODO: Chuyển scene hoặc panel sang Login sau vài giây
-            // Ví dụ: Invoke(nameof(GoToLoginScene), 1.5f);
-        });
+                    ShowMessage(task.Exception.Flatten().InnerExceptions[0].Message);
+                    return;
+                }
+
+                FirebaseUser user = task.Result.User;
+
+                Debug.Log("Đăng ký thành công: " + user.Email);
+
+                ShowMessage("Đăng ký thành công!");
+
+                Invoke(nameof(GoToLoginScene), 1.5f);
+            });
+    }
+
+    private void GoToLoginScene()
+    {
+        SceneManager.LoadScene("Login");
     }
 
     private void ShowMessage(string msg)
     {
-        if (messageText != null) messageText.text = msg;
-        Debug.Log($"[Register] {msg}");
+        if (messageText != null)
+            messageText.text = msg;
+
+        Debug.Log("[Register] " + msg);
     }
 }
