@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "439319340884",
+    "project_id": "game-abc39",
+    "storage_bucket": "game-abc39.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439319340884:android:a71312acee776e4a424ac1",
+        "android_client_info": {
+          "package_name": "com.game.rpg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwNJYtflazY__WR8OG5mG4lKT5rLsUsUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
