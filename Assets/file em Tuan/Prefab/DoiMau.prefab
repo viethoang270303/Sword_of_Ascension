@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4833209807238424861}
   - component: {fileID: 7408431319948851973}
   m_Layer: 0
-  m_Name: Enemy2
+  m_Name: DoiMau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 7805605423439199666}
   - component: {fileID: 247208203194280892}
   m_Layer: 0
-  m_Name: Demon_Boss
+  m_Name: QuyVuong
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
