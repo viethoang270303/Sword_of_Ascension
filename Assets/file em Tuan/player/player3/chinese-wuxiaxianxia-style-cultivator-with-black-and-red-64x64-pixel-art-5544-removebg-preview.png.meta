@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4594090925e3b3a4882a7aa3e74bce30
+guid: d5825d78b0f69e540b0d010d5b313596
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6728108932365764898
-    second: weapon03longsword_0
+      213: 5264498188880090378
+    second: chinese-wuxiaxianxia-style-cultivator-with-black-and-red-64x64-pixel-art-5544-removebg-preview_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -96,40 +96,27 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: weapon03longsword_0
+      name: chinese-wuxiaxianxia-style-cultivator-with-black-and-red-64x64-pixel-art-5544-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 30
-        height: 30
+        x: 114
+        y: 31
+        width: 333
+        height: 438
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ed6b434b294f0a2a0800000000000000
-      internalID: -6728108932365764898
+      spriteID: a0592e4d5314f0940800000000000000
+      internalID: 5264498188880090378
       vertices: []
       indices: 
       edges: []
@@ -138,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 22322ebf24446ac4aa57d0f12c3798f0
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -146,11 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      weapon03longsword_0: -6728108932365764898
+      chinese-wuxiaxianxia-style-cultivator-with-black-and-red-64x64-pixel-art-5544-removebg-preview_0: 5264498188880090378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
