@@ -1,38 +1,37 @@
 using UnityEngine;
 
-public class GrimReaper : MonoBehaviour
+public class ScytheEnemy : MonoBehaviour
 {
     [Header("--- Thông số cơ bản ---")]
-    public float speed = 2.0f;
-    public float health = 10f;
-
-    [Header("--- Tiến hóa ---")]
-    public float healthBonusPerMinute = 5f;
-    public float speedBonusPerMinute = 0.3f;
-
-    [Header("--- Đẩy lùi (Knockback) ---")]
-    public float knockbackForce = 6f;
-    public float knockbackTime = 0.2f;
+    public float speed = 2.5f;
+    public float health = 15f;
     public float stopDistance = 1.2f;
 
-    [Header("--- Tấn công ---")]
-    public int damage = 25;
-    public float attackCooldown = 2.0f;
+    [Header("--- Tiến hóa theo thời gian ---")]
+    public float healthBonusPerMinute = 3f;
+    public float speedBonusPerMinute = 0.2f;
+
+    [Header("--- Đẩy lùi QUÁI (Khi quái bị đánh) ---")]
+    public float knockbackForce = 5f;
+    public float knockbackTime = 0.2f;
+    private float knockbackCounter;
+
+    [Header("--- Tấn công & Đẩy lùi PLAYER ---")]
+    public int damage = 20;
+    public float attackCooldown = 1.5f;
+    public float playerKnockbackForce = 10f; // Lực hất văng Player khi xài đòn Attack
     private float nextAttackTime = 0f;
 
-    [Header("--- Vật phẩm & Hiệu ứng ---")]
+    [Header("--- Vật phẩm rớt ra ---")]
     public GameObject expGemPrefab;
 
-    // --- Biến nội bộ ---
     private float currentHealth;
     private float currentSpeed;
-    private float knockbackCounter;
-    private bool isDead = false;
-
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private Transform player;
     private Animator anim;
+    private Transform player;
+    private bool isDead = false;
 
     void Start()
     {
@@ -40,7 +39,7 @@ public class GrimReaper : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        // Tăng sức mạnh theo thời gian sống sót của người chơi
+        // Tăng chỉ số nếu Player sống càng lâu
         float minutesPlayed = Time.timeSinceLevelLoad / 60f;
         currentHealth = health + (healthBonusPerMinute * minutesPlayed);
         currentSpeed = speed + (speedBonusPerMinute * minutesPlayed);
@@ -53,36 +52,39 @@ public class GrimReaper : MonoBehaviour
     {
         if (isDead || player == null) return;
 
-        // 1. Lật mặt theo hướng Player
+        // 1. TỰ ĐỘNG LẬT MẶT (Đã sửa lại cho khớp với ảnh gốc quay sang phải)
         if (player.position.x < transform.position.x)
-            sr.flipX = false; // Sửa thành true nếu sprite gốc bị ngược
+            sr.flipX = true;  // Player ở bên trái -> Lật ảnh sang trái
         else
-            sr.flipX = true;  // Sửa thành false nếu sprite gốc bị ngược
+            sr.flipX = false; // Player ở bên phải -> Giữ nguyên ảnh gốc
 
-        // 2. Chịu lực đẩy lùi (Knockback)
+        // 2. Đứng hình tạm thời khi quái bị Knockback
         if (knockbackCounter > 0)
         {
             knockbackCounter -= Time.fixedDeltaTime;
-            if (anim != null) anim.SetBool("IsWalking", false);
+            if (anim != null) anim.SetBool("Run", false); // Tắt animation chạy
             return;
         }
 
-        // 3. Di chuyển đuổi theo & Tấn công
+        // 3. Di chuyển & Ra đòn
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (distanceToPlayer > stopDistance)
         {
-            // Nếu ở xa -> Chạy tới
+            // Rượt đuổi Player
             Vector2 direction = (player.position - transform.position).normalized;
             rb.linearVelocity = direction * currentSpeed;
 
-            if (anim != null) anim.SetBool("IsWalking", true);
+            // Bật hoạt ảnh chạy
+            if (anim != null) anim.SetBool("Run", true);
         }
         else
         {
-            // Áp sát -> Dừng lại và chém
+            // Đã áp sát -> Dừng lại
             rb.linearVelocity = Vector2.zero;
-            if (anim != null) anim.SetBool("IsWalking", false);
+
+            // Tắt hoạt ảnh chạy
+            if (anim != null) anim.SetBool("Run", false);
 
             if (Time.time >= nextAttackTime)
             {
@@ -94,8 +96,23 @@ public class GrimReaper : MonoBehaviour
 
     void AttackPlayer()
     {
-        if (anim != null) anim.SetTrigger("Attack");
+        if (anim != null)
+        {
+            // Random tung 1 trong 2 đòn đánh (0 hoặc 1)
+            int randomAttack = Random.Range(0, 2);
 
+            if (randomAttack == 0)
+            {
+                anim.SetTrigger("Attack");  // Đòn chém ngang
+                KnockbackPlayer();          // Gọi hàm hất văng Player
+            }
+            else
+            {
+                anim.SetTrigger("Attack1"); // Đòn bổ củi (chỉ trừ máu, không hất)
+            }
+        }
+
+        // Trừ máu Player
         PlayerHealth ph = player.GetComponent<PlayerHealth>();
         if (ph != null)
         {
@@ -103,12 +120,32 @@ public class GrimReaper : MonoBehaviour
         }
     }
 
-    // --- XỬ LÝ VA CHẠM NHẬN SÁT THƯƠNG ---
+    // --- HÀM HẤT VĂNG PLAYER ---
+    void KnockbackPlayer()
+    {
+        if (player != null)
+        {
+            Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
+            {
+                // Tính toán hướng đẩy lùi (Từ quái hướng tới Player)
+                Vector2 knockbackDirection = (player.position - transform.position).normalized;
+
+                // Khựng Player lại một nhịp rồi mới hất đi để tạo cảm giác bị tác động mạnh
+                playerRb.linearVelocity = Vector2.zero;
+
+                // Ép lực hất văng
+                playerRb.AddForce(knockbackDirection * playerKnockbackForce, ForceMode2D.Impulse);
+            }
+        }
+    }
+
+    // --- NHẬN SÁT THƯƠNG TỪ PLAYER ---
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
 
-        // 1. Dính đạn
+        // Dính đạn
         BulletScript dan = collision.GetComponent<BulletScript>();
         if (dan == null) dan = collision.GetComponentInParent<BulletScript>();
 
@@ -120,17 +157,18 @@ public class GrimReaper : MonoBehaviour
             return;
         }
 
-        // 2. Dính kiếm xoay
+        // Dính kiếm xoay
         SwordOrbit kiemXoay = collision.GetComponent<SwordOrbit>();
         if (kiemXoay == null) kiemXoay = collision.GetComponentInParent<SwordOrbit>();
 
         if (kiemXoay != null)
         {
             ApplyKnockback(kiemXoay.transform.position);
-            TakeDamage(2); // Trừ 2 máu
+            TakeDamage(2);
         }
     }
 
+    // Hàm quái bị đẩy lùi
     void ApplyKnockback(Vector3 sourcePosition)
     {
         knockbackCounter = knockbackTime;
@@ -154,9 +192,9 @@ public class GrimReaper : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
-        rb.linearVelocity = Vector2.zero; // Dừng hẳn lại
+        rb.linearVelocity = Vector2.zero;
         Collider2D col = GetComponent<Collider2D>();
-        if (col != null) col.enabled = false; // Tắt va chạm
+        if (col != null) col.enabled = false;
 
         // Rớt ngọc kinh nghiệm
         if (expGemPrefab != null)
@@ -164,7 +202,6 @@ public class GrimReaper : MonoBehaviour
             Instantiate(expGemPrefab, transform.position, Quaternion.identity);
         }
 
-        // Bốc hơi sau 0.2s
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject, 0.1f);
     }
 }
