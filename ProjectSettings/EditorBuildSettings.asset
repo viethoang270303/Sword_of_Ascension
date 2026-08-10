@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Manchoi2.unity
     guid: 6a137341052b86c40912d140f758cd94
   - enabled: 1
+    path: Assets/Scenes/Manchoi3.unity
+    guid: ccdc259b2a4c34e4190652f9312619e3
+  - enabled: 1
     path: Assets/Scenes/Login.unity
     guid: f2cd38fb07a7a944cafff6b691d22f17
   - enabled: 1
