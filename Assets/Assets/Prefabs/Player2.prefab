@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 1203517858059961340}
   - component: {fileID: 7849438407351792198}
   - component: {fileID: 4230981091036810603}
+  - component: {fileID: 1229919954268254043}
   m_Layer: 0
-  m_Name: Player3
+  m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,9 +33,9 @@ Transform:
   m_GameObject: {fileID: 333868093559987767}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 452.17, y: 3.91, z: 0}
-  m_LocalScale: {x: 3.3610678, y: 2.7894297, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 452.7767, y: 3.7881, z: 0}
+  m_LocalScale: {x: 3.361068, y: 2.78943, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1051324996481734063}
   - {fileID: 1561597026403262991}
@@ -87,9 +88,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5264498188880090378, guid: d5825d78b0f69e540b0d010d5b313596, type: 3}
+  m_Sprite: {fileID: -9025227177268257839, guid: f9702375f2712de42af2359c93b209f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,7 +110,7 @@ Animator:
   m_GameObject: {fileID: 333868093559987767}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 95f4ed2f156968a4caf290faf562d642, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 5
+  maxHealth: 100
 --- !u!114 &1203517858059961340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +235,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.33, y: 4.38}
+    oldSize: {x: 0.45, y: 0.5}
     newSize: {x: 0.22, y: 0.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -241,6 +243,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.22, y: 0.36}
   m_EdgeRadius: 0
+--- !u!114 &1229919954268254043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333868093559987767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1848c0ed3b5d745438a9d08c50f39041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLevel
+  playerDamage: 1
+  currentLevel: 1
+  currentExp: 0
+  expToNextLevel: 100
+  expBar: {fileID: 0}
 --- !u!1 &2241546342226594258
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +288,7 @@ RectTransform:
   m_GameObject: {fileID: 2241546342226594258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.009, y: 0.005, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 455582766762005006}
@@ -277,8 +296,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.307}
-  m_SizeDelta: {x: 100.9062, y: 16.0923}
+  m_AnchoredPosition: {x: -0.025, y: -0.305}
+  m_SizeDelta: {x: 65.9542, y: 36.5666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &783219596814300674
 Canvas:
