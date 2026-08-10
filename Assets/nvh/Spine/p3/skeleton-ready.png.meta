@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3f9c6147b80e7a044956ba26709abe6b
+guid: d01700e063b1a2f40bb16ace92ee97e5
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -122,6 +122,21 @@ TextureImporter:
   - first:
       213: 7620161284734493442
     second: skeleton-ready_39
+  - first:
+      213: -8813222274710234500
+    second: skeleton-ready_40
+  - first:
+      213: 1519003756015893925
+    second: skeleton-ready_41
+  - first:
+      213: -8984845557894090795
+    second: skeleton-ready_42
+  - first:
+      213: -8579926589568724163
+    second: skeleton-ready_43
+  - first:
+      213: 3252253915310208508
+    second: skeleton-ready_44
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -220,10 +235,10 @@ TextureImporter:
       name: skeleton-ready_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 56
-        width: 50
-        height: 53
+        x: 2
+        y: 1
+        width: 51
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,10 +257,10 @@ TextureImporter:
       name: skeleton-ready_1
       rect:
         serializedVersion: 2
-        x: 60
+        x: 4
         y: 56
         width: 50
-        height: 52
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +279,10 @@ TextureImporter:
       name: skeleton-ready_2
       rect:
         serializedVersion: 2
-        x: 115
-        y: 56
+        x: 55
+        y: 1
         width: 51
-        height: 52
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +301,10 @@ TextureImporter:
       name: skeleton-ready_3
       rect:
         serializedVersion: 2
-        x: 171
+        x: 57
         y: 56
-        width: 51
-        height: 52
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,10 +323,10 @@ TextureImporter:
       name: skeleton-ready_4
       rect:
         serializedVersion: 2
-        x: 227
-        y: 56
-        width: 52
-        height: 52
+        x: 109
+        y: 1
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,10 +345,10 @@ TextureImporter:
       name: skeleton-ready_5
       rect:
         serializedVersion: 2
-        x: 282
+        x: 111
         y: 56
-        width: 53
-        height: 52
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,10 +367,10 @@ TextureImporter:
       name: skeleton-ready_6
       rect:
         serializedVersion: 2
-        x: 338
-        y: 56
-        width: 53
-        height: 52
+        x: 162
+        y: 1
+        width: 51
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -374,10 +389,10 @@ TextureImporter:
       name: skeleton-ready_7
       rect:
         serializedVersion: 2
-        x: 393
+        x: 164
         y: 56
-        width: 54
-        height: 53
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -396,10 +411,10 @@ TextureImporter:
       name: skeleton-ready_8
       rect:
         serializedVersion: 2
-        x: 449
-        y: 56
-        width: 55
-        height: 53
+        x: 215
+        y: 1
+        width: 51
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,10 +433,10 @@ TextureImporter:
       name: skeleton-ready_9
       rect:
         serializedVersion: 2
-        x: 505
+        x: 217
         y: 56
-        width: 55
-        height: 53
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -440,10 +455,10 @@ TextureImporter:
       name: skeleton-ready_10
       rect:
         serializedVersion: 2
-        x: 561
-        y: 56
-        width: 55
-        height: 53
+        x: 269
+        y: 1
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,10 +477,10 @@ TextureImporter:
       name: skeleton-ready_11
       rect:
         serializedVersion: 2
-        x: 617
+        x: 270
         y: 56
-        width: 55
-        height: 53
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -484,10 +499,10 @@ TextureImporter:
       name: skeleton-ready_12
       rect:
         serializedVersion: 2
-        x: 673
-        y: 56
-        width: 55
-        height: 53
+        x: 322
+        y: 1
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -506,10 +521,10 @@ TextureImporter:
       name: skeleton-ready_13
       rect:
         serializedVersion: 2
-        x: 729
+        x: 323
         y: 56
-        width: 55
-        height: 53
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -528,10 +543,10 @@ TextureImporter:
       name: skeleton-ready_14
       rect:
         serializedVersion: 2
-        x: 786
+        x: 376
         y: 56
-        width: 54
-        height: 53
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -550,10 +565,10 @@ TextureImporter:
       name: skeleton-ready_15
       rect:
         serializedVersion: 2
-        x: 842
+        x: 429
         y: 56
-        width: 54
-        height: 53
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -572,10 +587,10 @@ TextureImporter:
       name: skeleton-ready_16
       rect:
         serializedVersion: 2
-        x: 898
+        x: 482
         y: 56
-        width: 54
-        height: 53
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -594,10 +609,10 @@ TextureImporter:
       name: skeleton-ready_17
       rect:
         serializedVersion: 2
-        x: 954
+        x: 534
         y: 56
-        width: 54
-        height: 53
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -616,10 +631,10 @@ TextureImporter:
       name: skeleton-ready_18
       rect:
         serializedVersion: 2
-        x: 1011
+        x: 587
         y: 56
-        width: 53
-        height: 53
+        width: 50
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -638,10 +653,10 @@ TextureImporter:
       name: skeleton-ready_19
       rect:
         serializedVersion: 2
-        x: 1067
+        x: 640
         y: 56
-        width: 53
-        height: 53
+        width: 50
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -660,10 +675,10 @@ TextureImporter:
       name: skeleton-ready_20
       rect:
         serializedVersion: 2
-        x: 1124
+        x: 692
         y: 56
-        width: 52
-        height: 53
+        width: 51
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -682,10 +697,10 @@ TextureImporter:
       name: skeleton-ready_21
       rect:
         serializedVersion: 2
-        x: 1180
+        x: 745
         y: 56
-        width: 52
-        height: 53
+        width: 51
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -704,10 +719,10 @@ TextureImporter:
       name: skeleton-ready_22
       rect:
         serializedVersion: 2
-        x: 1236
+        x: 798
         y: 56
-        width: 52
-        height: 53
+        width: 51
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -726,10 +741,10 @@ TextureImporter:
       name: skeleton-ready_23
       rect:
         serializedVersion: 2
-        x: 1292
+        x: 850
         y: 56
-        width: 51
-        height: 53
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -748,10 +763,10 @@ TextureImporter:
       name: skeleton-ready_24
       rect:
         serializedVersion: 2
-        x: 1349
+        x: 903
         y: 56
-        width: 50
-        height: 53
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -770,10 +785,10 @@ TextureImporter:
       name: skeleton-ready_25
       rect:
         serializedVersion: 2
-        x: 1405
+        x: 956
         y: 56
-        width: 50
-        height: 53
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -792,9 +807,9 @@ TextureImporter:
       name: skeleton-ready_26
       rect:
         serializedVersion: 2
-        x: 1461
-        y: 55
-        width: 49
+        x: 1009
+        y: 56
+        width: 52
         height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -814,9 +829,9 @@ TextureImporter:
       name: skeleton-ready_27
       rect:
         serializedVersion: 2
-        x: 1518
-        y: 55
-        width: 48
+        x: 1062
+        y: 56
+        width: 52
         height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -836,10 +851,10 @@ TextureImporter:
       name: skeleton-ready_28
       rect:
         serializedVersion: 2
-        x: 1574
+        x: 1115
         y: 56
-        width: 48
-        height: 53
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -858,9 +873,9 @@ TextureImporter:
       name: skeleton-ready_29
       rect:
         serializedVersion: 2
-        x: 1630
-        y: 55
-        width: 48
+        x: 1168
+        y: 56
+        width: 52
         height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -880,10 +895,10 @@ TextureImporter:
       name: skeleton-ready_30
       rect:
         serializedVersion: 2
-        x: 1687
+        x: 1221
         y: 56
-        width: 46
-        height: 53
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -902,10 +917,10 @@ TextureImporter:
       name: skeleton-ready_31
       rect:
         serializedVersion: 2
-        x: 1743
+        x: 1274
         y: 56
-        width: 46
-        height: 53
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -924,10 +939,10 @@ TextureImporter:
       name: skeleton-ready_32
       rect:
         serializedVersion: 2
-        x: 1798
+        x: 1327
         y: 56
-        width: 47
-        height: 53
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -946,10 +961,10 @@ TextureImporter:
       name: skeleton-ready_33
       rect:
         serializedVersion: 2
-        x: 1854
+        x: 1380
         y: 56
-        width: 47
-        height: 53
+        width: 52
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -968,10 +983,10 @@ TextureImporter:
       name: skeleton-ready_34
       rect:
         serializedVersion: 2
-        x: 1910
+        x: 1432
         y: 56
-        width: 47
-        height: 53
+        width: 53
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -990,10 +1005,10 @@ TextureImporter:
       name: skeleton-ready_35
       rect:
         serializedVersion: 2
-        x: 1966
+        x: 1485
         y: 56
-        width: 47
-        height: 53
+        width: 53
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1012,10 +1027,10 @@ TextureImporter:
       name: skeleton-ready_36
       rect:
         serializedVersion: 2
-        x: 6
-        y: 2
-        width: 48
-        height: 53
+        x: 1538
+        y: 56
+        width: 53
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1034,10 +1049,10 @@ TextureImporter:
       name: skeleton-ready_37
       rect:
         serializedVersion: 2
-        x: 61
-        y: 2
-        width: 49
-        height: 53
+        x: 1591
+        y: 56
+        width: 52
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1056,10 +1071,10 @@ TextureImporter:
       name: skeleton-ready_38
       rect:
         serializedVersion: 2
-        x: 117
-        y: 2
-        width: 49
-        height: 53
+        x: 1644
+        y: 56
+        width: 52
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1078,10 +1093,10 @@ TextureImporter:
       name: skeleton-ready_39
       rect:
         serializedVersion: 2
-        x: 173
-        y: 2
-        width: 49
-        height: 53
+        x: 1697
+        y: 56
+        width: 52
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1092,6 +1107,116 @@ TextureImporter:
       bones: []
       spriteID: 203a8cba05040c960800000000000000
       internalID: 7620161284734493442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton-ready_40
+      rect:
+        serializedVersion: 2
+        x: 1750
+        y: 56
+        width: 52
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7a165d190521b580800000000000000
+      internalID: -8813222274710234500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton-ready_41
+      rect:
+        serializedVersion: 2
+        x: 1803
+        y: 56
+        width: 52
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5adbfc93ed5941510800000000000000
+      internalID: 1519003756015893925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton-ready_42
+      rect:
+        serializedVersion: 2
+        x: 1856
+        y: 56
+        width: 52
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dfe9ff919a6f4380800000000000000
+      internalID: -8984845557894090795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton-ready_43
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 56
+        width: 51
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33d3d5a93afde880800000000000000
+      internalID: -8579926589568724163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton-ready_44
+      rect:
+        serializedVersion: 2
+        x: 1963
+        y: 56
+        width: 51
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5307d64b3522d20800000000000000
+      internalID: 3252253915310208508
       vertices: []
       indices: 
       edges: []
@@ -1145,6 +1270,11 @@ TextureImporter:
       skeleton-ready_38: -3354220002416332263
       skeleton-ready_39: 7620161284734493442
       skeleton-ready_4: -5392478843782947688
+      skeleton-ready_40: -8813222274710234500
+      skeleton-ready_41: 1519003756015893925
+      skeleton-ready_42: -8984845557894090795
+      skeleton-ready_43: -8579926589568724163
+      skeleton-ready_44: 3252253915310208508
       skeleton-ready_5: 2705999174225725271
       skeleton-ready_6: -2529250208454977648
       skeleton-ready_7: -8434055575459539697
