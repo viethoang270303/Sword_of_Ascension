@@ -23,6 +23,7 @@ public class EnemyScript : MonoBehaviour
     private Transform player;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private bool isDead = false;
 
     void Start()
     {
@@ -39,6 +40,8 @@ public class EnemyScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isDead) return;
+
         if (knockbackCounter > 0)
         {
             knockbackCounter -= Time.fixedDeltaTime;
@@ -62,6 +65,8 @@ public class EnemyScript : MonoBehaviour
     // Khi Kiếm xoay chém trúng
     public void TakeDamage(int damageAmount)
     {
+        if (isDead) return;
+
         health -= damageAmount;
         ShowDamagePopup(damageAmount);
         CheckDeath();
@@ -84,9 +89,17 @@ public class EnemyScript : MonoBehaviour
 
     private void CheckDeath()
     {
-        if (health <= 0)
+        if (health <= 0 && !isDead)
         {
+            isDead = true;
             if (expGemPrefab != null) Instantiate(expGemPrefab, transform.position, Quaternion.identity);
+
+            // ---> BÁO CÁO VỀ TỔNG ĐÀI ĐỂ CỘNG ĐIỂM <---
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.AddKill();
+            }
+
             Destroy(gameObject);
         }
     }
@@ -94,6 +107,8 @@ public class EnemyScript : MonoBehaviour
     // Khi Đạn bắn trúng
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (isDead) return;
+
         if (other.GetComponent<BulletScript>() != null)
         {
             int damageToTake = 1;
@@ -118,11 +133,13 @@ public class EnemyScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isDead) return;
         if (collision.gameObject.CompareTag("Player")) DealDamage(collision.gameObject);
     }
 
     void OnCollisionStay2D(Collision2D collision)
     {
+        if (isDead) return;
         if (collision.gameObject.CompareTag("Player")) DealDamage(collision.gameObject);
     }
 
