@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1481513032148765910}
   - component: {fileID: 2800964268890417988}
   - component: {fileID: 8972489975054070562}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy-Melee-Idle-W_0
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
