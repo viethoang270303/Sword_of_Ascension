@@ -1,207 +1,170 @@
 using UnityEngine;
 
-public class GrimReaperController : MonoBehaviour
+public class GrimReaper : MonoBehaviour
 {
-    [Header("Thông số cơ bản")]
-    public float speed = 2f;
-    public int health = 3;
+    [Header("--- Thông số cơ bản ---")]
+    public float speed = 2.0f;
+    public float health = 10f;
 
-    [Header("Tiến hóa")]
-    public int healthBonusPerMinute = 2;
-    public float speedBonusPerMinute = 0.2f;
+    [Header("--- Tiến hóa ---")]
+    public float healthBonusPerMinute = 5f;
+    public float speedBonusPerMinute = 0.3f;
 
-    [Header("Đẩy lùi (Knockback)")]
-    public float knockbackForce = 5f;
+    [Header("--- Đẩy lùi (Knockback) ---")]
+    public float knockbackForce = 6f;
     public float knockbackTime = 0.2f;
-    private float knockbackCounter;
-    public float stopDistance = 0.6f;
+    public float stopDistance = 1.2f;
 
-    [Header("Hiệu ứng & Vật phẩm")]
-    public GameObject expGemPrefab;
-    public GameObject damagePopupPrefab;
-
-    private Transform player;
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-
-    // --- KHAI BÁO ANIMATOR ---
-    private Animator anim;
-    private bool isDead = false;
-    private float attackCooldown = 1.5f;
+    [Header("--- Tấn công ---")]
+    public int damage = 25;
+    public float attackCooldown = 2.0f;
     private float nextAttackTime = 0f;
+
+    [Header("--- Vật phẩm & Hiệu ứng ---")]
+    public GameObject expGemPrefab;
+
+    // --- Biến nội bộ ---
+    private float currentHealth;
+    private float currentSpeed;
+    private float knockbackCounter;
+    private bool isDead = false;
+
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private Transform player;
+    private Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        float minutesPassed = Time.timeSinceLevelLoad / 60f;
-        health += Mathf.FloorToInt(minutesPassed * healthBonusPerMinute);
-        speed += (minutesPassed * speedBonusPerMinute);
+        // Tăng sức mạnh theo thời gian sống sót của người chơi
+        float minutesPlayed = Time.timeSinceLevelLoad / 60f;
+        currentHealth = health + (healthBonusPerMinute * minutesPlayed);
+        currentSpeed = speed + (speedBonusPerMinute * minutesPlayed);
 
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null) player = playerObj.transform;
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null) player = p.transform;
     }
 
     void FixedUpdate()
     {
-        if (isDead) return;
+        if (isDead || player == null) return;
 
+        // 1. Lật mặt theo hướng Player
+        if (player.position.x < transform.position.x)
+            sr.flipX = false; // Sửa thành true nếu sprite gốc bị ngược
+        else
+            sr.flipX = true;  // Sửa thành false nếu sprite gốc bị ngược
+
+        // 2. Chịu lực đẩy lùi (Knockback)
         if (knockbackCounter > 0)
         {
             knockbackCounter -= Time.fixedDeltaTime;
-            anim.SetBool("isWalking", false);
+            if (anim != null) anim.SetBool("IsWalking", false);
             return;
         }
 
-        if (player != null)
+        // 3. Di chuyển đuổi theo & Tấn công
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (distanceToPlayer > stopDistance)
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+            // Nếu ở xa -> Chạy tới
             Vector2 direction = (player.position - transform.position).normalized;
+            rb.linearVelocity = direction * currentSpeed;
 
-            if (distanceToPlayer > stopDistance)
-            {
-                rb.linearVelocity = direction * speed;
-                anim.SetBool("isWalking", true);
-            }
-            else
-            {
-                rb.linearVelocity = Vector2.zero;
-                anim.SetBool("isWalking", false);
-            }
-
-            if (direction.x < 0) spriteRenderer.flipX = true;
-            else if (direction.x > 0) spriteRenderer.flipX = false;
+            if (anim != null) anim.SetBool("IsWalking", true);
         }
         else
         {
+            // Áp sát -> Dừng lại và chém
             rb.linearVelocity = Vector2.zero;
-            anim.SetBool("isWalking", false);
-        }
-    }
+            if (anim != null) anim.SetBool("IsWalking", false);
 
-    // Khi Kiếm xoay chém trúng (Gọi hàm này để nhảy Popup và tính máu)
-    public void TakeDamage(int damageAmount)
-    {
-        if (isDead) return;
-
-        anim.SetTrigger("Damage");
-
-        health -= damageAmount;
-        ShowDamagePopup(damageAmount);
-        CheckDeath();
-    }
-
-    // Hàm hiển thị số sát thương bay ra
-    private void ShowDamagePopup(int damageAmount)
-    {
-        if (damagePopupPrefab != null)
-        {
-            GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
-            DamagePopup popupScript = popup.GetComponent<DamagePopup>();
-            if (popupScript != null)
+            if (Time.time >= nextAttackTime)
             {
-                popupScript.Setup(damageAmount);
+                AttackPlayer();
+                nextAttackTime = Time.time + attackCooldown;
             }
         }
     }
 
-    private void CheckDeath()
+    void AttackPlayer()
     {
-        if (health <= 0 && !isDead)
+        if (anim != null) anim.SetTrigger("Attack");
+
+        PlayerHealth ph = player.GetComponent<PlayerHealth>();
+        if (ph != null)
         {
-            isDead = true;
-            anim.SetTrigger("Death");
-            rb.linearVelocity = Vector2.zero;
-
-            Collider2D col = GetComponent<Collider2D>();
-            if (col != null) col.enabled = false;
-
-            if (expGemPrefab != null) Instantiate(expGemPrefab, transform.position, Quaternion.identity);
-
-            Destroy(gameObject, 1.5f);
+            ph.TakeDamage(damage);
         }
     }
 
-    // Xử lý va chạm Đạn & Kiếm xoay
-    void OnTriggerEnter2D(Collider2D other)
+    // --- XỬ LÝ VA CHẠM NHẬN SÁT THƯƠNG ---
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
 
-        // 1. Kịch bản khi bị ĐẠN BẮN 
-        if (other.GetComponent<BulletScript>() != null)
+        // 1. Dính đạn
+        BulletScript dan = collision.GetComponent<BulletScript>();
+        if (dan == null) dan = collision.GetComponentInParent<BulletScript>();
+
+        if (dan != null)
         {
-            int damageToTake = 1;
-            if (player != null)
-            {
-                PlayerLevel pLevel = player.GetComponent<PlayerLevel>();
-                if (pLevel != null) damageToTake = pLevel.playerDamage;
-            }
-
-            health -= damageToTake;
-            ShowDamagePopup(damageToTake);
-            anim.SetTrigger("Damage");
-
-            knockbackCounter = knockbackTime;
-            Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
-            rb.linearVelocity = Vector2.zero;
-            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-
-            Destroy(other.gameObject);
-            CheckDeath();
+            ApplyKnockback(dan.transform.position);
+            TakeDamage(1);
+            Destroy(collision.gameObject);
+            return;
         }
 
-        // ==========================================
-        // 2. KỊCH BẢN KHI BỊ KIẾM XOAY CHÉM
-        // Đã sửa thành đúng tên kịch bản SwordOrbit
-        // ==========================================
-        else if (other.GetComponent<SwordOrbit>() != null)
+        // 2. Dính kiếm xoay
+        SwordOrbit kiemXoay = collision.GetComponent<SwordOrbit>();
+        if (kiemXoay == null) kiemXoay = collision.GetComponentInParent<SwordOrbit>();
+
+        if (kiemXoay != null)
         {
-            // Lấy trực tiếp sát thương từ biến Damage trong SwordOrbit (nếu có biến Damage)
-            // Hoặc có thể set cứng là TakeDamage(2) giống trong hình của bác.
-            int damageToTake = 2;
-
-            SwordOrbit sword = other.GetComponent<SwordOrbit>();
-            // Nếu bác muốn lấy sát thương từ file SwordOrbit thì có thể bỏ comment dòng dưới:
-            // damageToTake = sword.Damage; // (Đảm bảo biến Damage bên SwordOrbit là public)
-
-            TakeDamage(damageToTake);
-
-            // Nếu muốn chém đẩy lùi thì dùng đoạn này:
-            // knockbackCounter = knockbackTime;
-            // Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
-            // rb.linearVelocity = Vector2.zero;
-            // rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+            ApplyKnockback(kiemXoay.transform.position);
+            TakeDamage(2); // Trừ 2 máu
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void ApplyKnockback(Vector3 sourcePosition)
     {
-        if (collision.gameObject.CompareTag("Player")) DealDamage(collision.gameObject);
+        knockbackCounter = knockbackTime;
+        Vector2 difference = (transform.position - sourcePosition).normalized;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(difference * knockbackForce, ForceMode2D.Impulse);
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    public void TakeDamage(float dmg)
     {
-        if (collision.gameObject.CompareTag("Player")) DealDamage(collision.gameObject);
+        currentHealth -= dmg;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
-    void DealDamage(GameObject target)
+    void Die()
     {
         if (isDead) return;
+        isDead = true;
 
-        if (Time.time >= nextAttackTime)
+        rb.linearVelocity = Vector2.zero; // Dừng hẳn lại
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false; // Tắt va chạm
+
+        // Rớt ngọc kinh nghiệm
+        if (expGemPrefab != null)
         {
-            anim.SetTrigger("Attack");
-            PlayerHealth ph = target.GetComponent<PlayerHealth>();
-            if (ph != null) ph.TakeDamage(10);
-
-            nextAttackTime = Time.time + attackCooldown;
+            Instantiate(expGemPrefab, transform.position, Quaternion.identity);
         }
-    }
 
-    public void Jump()
-    {
-        if (anim != null) anim.SetTrigger("Jump");
+        // Bốc hơi sau 0.2s
+        Destroy(gameObject, 0.2f);
     }
 }
