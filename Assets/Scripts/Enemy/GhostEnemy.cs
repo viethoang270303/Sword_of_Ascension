@@ -164,6 +164,12 @@ public class GhostEnemy : MonoBehaviour
             Instantiate(expGemPrefab, transform.position, Quaternion.identity);
         }
 
+        // ---> BÁO CÁO VỀ TỔNG ĐÀI ĐỂ CỘNG ĐIỂM <---
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.AddKill();
+        }
+
         Destroy(gameObject, 0.2f);
     }
 }

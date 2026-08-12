@@ -11,9 +11,10 @@ public class LoginController : MonoBehaviour
     public TMP_InputField passwordInput;
     public TMP_Text messageText;
 
-    [Header("Scene sau khi đăng nhập thành công")]
-    public string gameSceneName = "MainGame";
+    // Biến dùng chung cho toàn game
+    public static bool isAdmin = false;
 
+    // Nút Log In
     public void OnLoginButtonClicked()
     {
         string email = emailInput.text.Trim();
@@ -34,34 +35,61 @@ public class LoginController : MonoBehaviour
         Login(email, password);
     }
 
+    // Đăng nhập Firebase
     private void Login(string email, string password)
     {
         ShowMessage("Đang đăng nhập...");
 
         FirebaseAuth auth = FirebaseManager.Instance.Auth;
-        auth.SignInWithEmailAndPasswordAsync(email, password).ContinueWithOnMainThread(task =>
-        {
-            if (task.IsCanceled || task.IsFaulted)
+
+        auth.SignInWithEmailAndPasswordAsync(email, password)
+            .ContinueWithOnMainThread(task =>
             {
-                string errorMessage = FirebaseErrorHelper.GetErrorMessage(task.Exception);
-                ShowMessage(errorMessage);
-                return;
-            }
+                // Nếu lỗi
+                if (task.IsCanceled || task.IsFaulted)
+                {
+                    string errorMessage = FirebaseErrorHelper.GetErrorMessage(task.Exception);
+                    ShowMessage(errorMessage);
+                    return;
+                }
 
-            AuthResult result = task.Result;
-            FirebaseUser user = result.User;
-            Debug.Log($"[Login] Đăng nhập thành công: {user.Email}");
+                // Thành công
+                AuthResult result = task.Result;
+                FirebaseUser user = result.User;
 
-            ShowMessage("Đăng nhập thành công!");
+                Debug.Log("[Login] Đăng nhập thành công: " + user.Email);
 
-            // Chuyển sang scene chính của game
-            SceneManager.LoadScene(gameSceneName);
-        });
+                // ===== ADMIN =====
+                if (user.Email == "khanh@gmail.com")
+                {
+                    isAdmin = true;
+                    ShowMessage("Đăng nhập ADMIN thành công!");
+
+                    Debug.Log("Load scene: Main Menu Admin");
+
+                    // LOAD TRỰC TIẾP SCENE ADMIN
+                    SceneManager.LoadScene("Main Menu Admin");
+                }
+                // ===== USER THƯỜNG =====
+                else
+                {
+                    isAdmin = false;
+                    ShowMessage("Đăng nhập thành công!");
+
+                    Debug.Log("Load scene: Main Menu");
+
+                    // LOAD TRỰC TIẾP SCENE THƯỜNG
+                    SceneManager.LoadScene("Main Menu");
+                }
+            });
     }
 
+    // Hiển thị thông báo
     private void ShowMessage(string msg)
     {
-        if (messageText != null) messageText.text = msg;
-        Debug.Log($"[Login] {msg}");
+        if (messageText != null)
+            messageText.text = msg;
+
+        Debug.Log("[Login] " + msg);
     }
 }

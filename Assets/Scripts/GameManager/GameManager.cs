@@ -1,43 +1,98 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Bắt buộc phải có thư viện này để chuyển màn hình
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Tạo cầu nối (Singleton) để file DemonBoss có thể gọi GameManager dễ dàng
     public static GameManager instance;
 
-    [Header("--- Giao diện UI ---")]
-    public GameObject victoryPanel; // Kéo thả VictoryPanel vào đây
+    [Header("--- Dữ liệu Thống Kê ---")]
+    public int totalKills = 0;
+    public Text killText;
 
-    [Header("--- Cài đặt Tên màn hình ---")]
-    // Đã điền chuẩn xác tên file "Main Menu" của bạn
+    [Header("--- HỆ THỐNG GỌI BOSS ---")]
+    public int killsToSpawnBoss = 50;
+    public GameObject bossPrefab;
+    private bool isBossSpawned = false;
+
+    [Header("--- Giao diện UI ---")]
+    public GameObject victoryPanel;
+    public GameObject missionPanel; // <-- BẢNG NHIỆM VỤ MỚI 
     public string mainMenuSceneName = "Main Menu";
 
     void Awake()
     {
-        if (instance == null)
+        if (instance == null) instance = this;
+    }
+
+    void Start()
+    {
+        UpdateUI();
+
+        // HIỆN BẢNG NHIỆM VỤ NGAY KHI VÀO GAME
+        if (missionPanel != null)
         {
-            instance = this;
+            missionPanel.SetActive(true);
+            Time.timeScale = 0f; // Đóng băng thời gian
         }
     }
 
-    // Hàm này được file DemonBoss gọi đến khi máu Boss = 0
+    // ==========================================
+    // HÀM GẮN VÀO NÚT "BẮT ĐẦU" TRÊN BẢNG NHIỆM VỤ
+    // ==========================================
+    public void StartMission()
+    {
+        if (missionPanel != null)
+        {
+            missionPanel.SetActive(false); // Ẩn bảng nhiệm vụ đi
+        }
+        Time.timeScale = 1f; // Rã đông thời gian, game bắt đầu!
+    }
+
+    // ==========================================
+    // CÁC HỆ THỐNG CŨ GIỮ NGUYÊN
+    // ==========================================
+    public void AddKill()
+    {
+        totalKills++;
+        UpdateUI();
+
+        if (totalKills >= killsToSpawnBoss && !isBossSpawned)
+        {
+            SpawnBoss();
+        }
+    }
+
+    void UpdateUI()
+    {
+        if (killText != null) killText.text = "Quái đã diệt: " + totalKills;
+    }
+
+    void SpawnBoss()
+    {
+        isBossSpawned = true;
+
+        if (bossPrefab != null)
+        {
+            Vector3 spawnPosition = Vector3.zero;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null) spawnPosition = player.transform.position + new Vector3(8f, 8f, 0);
+            Instantiate(bossPrefab, spawnPosition, Quaternion.identity);
+        }
+    }
+
     public void ShowVictoryScreen()
     {
         if (victoryPanel != null)
         {
-            victoryPanel.SetActive(true); // Hiện bảng Victory
-            Time.timeScale = 0f;          // Đóng băng toàn bộ thời gian trong game
+            victoryPanel.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 
-    // --- HÀM NÀY DÙNG ĐỂ GẮN VÀO NÚT BẤM (BUTTON) ---
     public void GoToMainMenu()
     {
-        // Cực kỳ quan trọng: Phải rã đông thời gian (trả về 1) trước khi qua màn mới
         Time.timeScale = 1f;
-
-        // Load về màn hình chính
         SceneManager.LoadScene(mainMenuSceneName);
     }
 }

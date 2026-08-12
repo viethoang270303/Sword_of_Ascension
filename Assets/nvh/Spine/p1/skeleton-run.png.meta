@@ -94,7 +94,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -160,10 +160,10 @@ TextureImporter:
       name: skeleton-run_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 54
-        height: 50
+        x: 6
+        y: 6
+        width: 52
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,9 +182,9 @@ TextureImporter:
       name: skeleton-run_1
       rect:
         serializedVersion: 2
-        x: 55
-        y: 1
-        width: 55
+        x: 61
+        y: 6
+        width: 53
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: skeleton-run_2
       rect:
         serializedVersion: 2
-        x: 110
-        y: 1
+        x: 118
+        y: 5
         width: 54
-        height: 49
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,10 +226,10 @@ TextureImporter:
       name: skeleton-run_3
       rect:
         serializedVersion: 2
-        x: 164
-        y: 1
-        width: 53
-        height: 49
+        x: 174
+        y: 4
+        width: 55
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,10 +248,10 @@ TextureImporter:
       name: skeleton-run_4
       rect:
         serializedVersion: 2
-        x: 217
-        y: 1
-        width: 53
-        height: 49
+        x: 230
+        y: 4
+        width: 56
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,10 +270,10 @@ TextureImporter:
       name: skeleton-run_5
       rect:
         serializedVersion: 2
-        x: 270
-        y: 1
-        width: 52
-        height: 49
+        x: 287
+        y: 3
+        width: 55
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,10 +292,10 @@ TextureImporter:
       name: skeleton-run_6
       rect:
         serializedVersion: 2
-        x: 322
-        y: 1
-        width: 52
-        height: 49
+        x: 344
+        y: 4
+        width: 54
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,8 +314,8 @@ TextureImporter:
       name: skeleton-run_7
       rect:
         serializedVersion: 2
-        x: 374
-        y: 1
+        x: 402
+        y: 5
         width: 52
         height: 49
       alignment: 0
@@ -336,9 +336,9 @@ TextureImporter:
       name: skeleton-run_8
       rect:
         serializedVersion: 2
-        x: 426
-        y: 1
-        width: 50
+        x: 459
+        y: 6
+        width: 51
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -358,9 +358,9 @@ TextureImporter:
       name: skeleton-run_9
       rect:
         serializedVersion: 2
-        x: 476
-        y: 1
-        width: 50
+        x: 517
+        y: 6
+        width: 52
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -380,9 +380,9 @@ TextureImporter:
       name: skeleton-run_10
       rect:
         serializedVersion: 2
-        x: 526
-        y: 1
-        width: 50
+        x: 575
+        y: 6
+        width: 51
         height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: skeleton-run_11
       rect:
         serializedVersion: 2
-        x: 576
-        y: 1
-        width: 51
-        height: 48
+        x: 633
+        y: 5
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,10 +424,10 @@ TextureImporter:
       name: skeleton-run_12
       rect:
         serializedVersion: 2
-        x: 627
-        y: 1
-        width: 50
-        height: 48
+        x: 690
+        y: 4
+        width: 48
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -446,10 +446,10 @@ TextureImporter:
       name: skeleton-run_13
       rect:
         serializedVersion: 2
-        x: 677
-        y: 1
-        width: 48
-        height: 49
+        x: 748
+        y: 3
+        width: 47
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,9 +468,9 @@ TextureImporter:
       name: skeleton-run_14
       rect:
         serializedVersion: 2
-        x: 725
-        y: 1
-        width: 47
+        x: 806
+        y: 3
+        width: 46
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -490,10 +490,10 @@ TextureImporter:
       name: skeleton-run_15
       rect:
         serializedVersion: 2
-        x: 772
-        y: 1
-        width: 46
-        height: 51
+        x: 864
+        y: 2
+        width: 45
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -512,10 +512,10 @@ TextureImporter:
       name: skeleton-run_16
       rect:
         serializedVersion: 2
-        x: 818
-        y: 1
-        width: 46
-        height: 50
+        x: 921
+        y: 2
+        width: 45
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -534,9 +534,9 @@ TextureImporter:
       name: skeleton-run_17
       rect:
         serializedVersion: 2
-        x: 864
-        y: 1
-        width: 45
+        x: 977
+        y: 3
+        width: 47
         height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -556,10 +556,10 @@ TextureImporter:
       name: skeleton-run_18
       rect:
         serializedVersion: 2
-        x: 909
-        y: 1
-        width: 46
-        height: 49
+        x: 1033
+        y: 5
+        width: 49
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,10 +578,10 @@ TextureImporter:
       name: skeleton-run_19
       rect:
         serializedVersion: 2
-        x: 955
-        y: 1
-        width: 44
-        height: 51
+        x: 1090
+        y: 6
+        width: 50
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
