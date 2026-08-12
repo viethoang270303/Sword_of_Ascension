@@ -17,6 +17,7 @@ public class BatShooter : MonoBehaviour
     private float nextFireTime;
     private Transform player;
     private SpriteRenderer sr;
+    private bool isDead = false; // Chốt an toàn chống đếm kill 2 lần
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class BatShooter : MonoBehaviour
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null || isDead) return;
 
         // --- LẬT MẶT DƠI VỀ PHÍA NGƯỜI CHƠI ---
         if (player.position.x > transform.position.x) sr.flipX = true;
@@ -66,6 +67,8 @@ public class BatShooter : MonoBehaviour
     // --- HỆ THỐNG NHẬN SÁT THƯƠNG TỪ ĐẠN CỦA PLAYER ---
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isDead) return;
+
         // Nhận diện script đạn của Player (Tên script là BulletScript)
         BulletScript dan = collision.GetComponent<BulletScript>();
 
@@ -91,12 +94,29 @@ public class BatShooter : MonoBehaviour
     // --- HÀM TRỪ MÁU ---
     public void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Dơi đã bị tiêu diệt!");
-            Destroy(gameObject); // Con dơi nổ tung và biến mất
+            Die();
         }
+    }
+
+    void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        Debug.Log("Dơi đã bị tiêu diệt!");
+
+        // ---> BÁO CÁO VỀ TỔNG ĐÀI ĐỂ CỘNG ĐIỂM <---
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.AddKill();
+        }
+
+        Destroy(gameObject); // Con dơi nổ tung và biến mất
     }
 }

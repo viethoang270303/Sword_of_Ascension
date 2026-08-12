@@ -164,6 +164,12 @@ public class GrimReaper : MonoBehaviour
             Instantiate(expGemPrefab, transform.position, Quaternion.identity);
         }
 
+        // ---> BÁO CÁO VỀ TỔNG ĐÀI ĐỂ CỘNG ĐIỂM <---
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.AddKill();
+        }
+
         // Bốc hơi sau 0.2s
         Destroy(gameObject, 0.2f);
     }
