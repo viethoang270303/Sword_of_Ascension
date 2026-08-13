@@ -355,7 +355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1267877445829618967
 Transform:
   m_ObjectHideFlags: 0
@@ -592,3 +592,6 @@ MonoBehaviour:
   currentExp: 0
   expToNextLevel: 100
   expBar: {fileID: 0}
+  cauNuocPrefab: {fileID: 0}
+  swordPrefab: {fileID: 0}
+  playerTransform: {fileID: 0}
