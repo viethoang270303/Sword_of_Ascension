@@ -14,6 +14,8 @@ public class PlayerActivator : MonoBehaviour
     [Header("Keo diem spawn cho player vao day")]
     public Transform spawnPoint;
 
+    private GameObject activePlayer;
+
     void Awake()
     {
         int index = GameSession.SelectedCharacterIndex;
@@ -22,7 +24,7 @@ public class PlayerActivator : MonoBehaviour
         if (player2 != null) player2.SetActive(index == 1);
         if (player3 != null) player3.SetActive(index == 2);
 
-        GameObject activePlayer = index switch
+        activePlayer = index switch
         {
             0 => player1,
             1 => player2,
@@ -31,12 +33,25 @@ public class PlayerActivator : MonoBehaviour
         };
 
         if (activePlayer != null && spawnPoint != null)
+        {
             activePlayer.transform.position = spawnPoint.position;
+        }
+    }
 
+    void Start()
+    {
         if (vcam == null)
+        {
             vcam = FindFirstObjectByType<CinemachineCamera>();
+        }
 
         if (vcam != null && activePlayer != null)
-            vcam.Follow = activePlayer.transform;
+        {
+            // 1. Gắn mục tiêu bám theo cho Cinemachine 3.x
+            vcam.Target.TrackingTarget = activePlayer.transform;
+
+            // 2. Ép Camera dịch chuyển thẳng đến vị trí Player ngay lập tức (không bị giật góc)
+            vcam.ForceCameraPosition(activePlayer.transform.position, Quaternion.identity);
+        }
     }
 }

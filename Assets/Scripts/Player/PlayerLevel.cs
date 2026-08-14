@@ -67,8 +67,6 @@ public class PlayerLevel : MonoBehaviour
 
         // Rã đông thời gian để game tiếp tục chạy
         Time.timeScale = 1f;
-
-        // Ghi chú: Nếu bảng UI chưa tự đóng, bác có thể gắn thêm lệnh đóng UI của GameManager/SkillManager vào nút bấm nhé!
     }
 
     // Hàm gọi Kiếm Xoay (Dùng cho Màn 1)
@@ -82,6 +80,29 @@ public class PlayerLevel : MonoBehaviour
             Debug.Log("Đã chọn kỹ năng: Thêm 1 Kiếm Xoay!");
         }
 
+        Time.timeScale = 1f;
+    }
+
+    // ==========================================
+    // HÀM GỌI TIA SÉT (Dùng cho Player mang kịch bản Sét)
+    // ==========================================
+    public void AddLightning()
+    {
+        // Đi tìm kịch bản Sét (động cơ đẻ sét liên tục) trên người nhân vật
+        AutoLightning lightningScript = GetComponent<AutoLightning>();
+
+        if (lightningScript != null)
+        {
+            // Bật công tắc cho kịch bản Sét thức dậy và chạy vòng lặp đánh liên tục
+            lightningScript.enabled = true;
+            Debug.Log("Đã mở khóa: Sét giật liên tục!");
+        }
+        else
+        {
+            Debug.LogWarning("Không tìm thấy kịch bản AutoLightning trên người Player này! Nhớ kéo thả vào Inspector nhé.");
+        }
+
+        // Rã đông thời gian để game chạy tiếp
         Time.timeScale = 1f;
     }
 }
