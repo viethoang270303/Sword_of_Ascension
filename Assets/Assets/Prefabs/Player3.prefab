@@ -119,6 +119,8 @@ GameObject:
   - component: {fileID: 5960206971250788451}
   - component: {fileID: 7057479648461108451}
   - component: {fileID: 4973350474208075259}
+  - component: {fileID: 3862949944884558459}
+  - component: {fileID: 5875606456618873889}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Player
@@ -365,6 +367,37 @@ MonoBehaviour:
   cauNuocPrefab: {fileID: 0}
   swordPrefab: {fileID: 0}
   playerTransform: {fileID: 0}
+--- !u!114 &3862949944884558459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160388252850471935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256ce851bdf5e134ea6be8ebc89c994b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoLightning
+  lightningPrefab: {fileID: 4784697566495425320, guid: b62bd9c45870db34b86602160813a2af, type: 3}
+  strikeInterval: 0.8
+  strikeCount: 3
+  scanRange: 8
+--- !u!114 &5875606456618873889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160388252850471935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d9fc980e27d6b7429871fe774aba8b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoSlash
+  slashPrefab: {fileID: 5810565115824167742, guid: 96f24ced0c7f964419776f00f474de84, type: 3}
+  attackRate: 1
+  spawnDistance: 1.5
 --- !u!1 &7340308845706666085
 GameObject:
   m_ObjectHideFlags: 0
