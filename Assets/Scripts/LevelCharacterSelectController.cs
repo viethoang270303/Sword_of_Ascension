@@ -55,7 +55,7 @@ public class LevelCharacterSelectController : MonoBehaviour
                 levelLockIcons[i].SetActive(!isUnlocked);
         }
     }
-     
+
     public void ChonMan(int index)
     {
         if (index < 0 || index >= levelSceneNames.Length) return;
@@ -109,6 +109,16 @@ public class LevelCharacterSelectController : MonoBehaviour
         GameSession.SelectedLevelName = selectedLevel;
         GameSession.SelectedCharacterIndex = selectedCharacter;
 
-        SceneManager.LoadScene(selectedLevel);
+        // Thay vì load thang scene, mo Cot Truyen truoc
+        StoryController storyController = FindFirstObjectByType<StoryController>();
+        if (storyController != null)
+        {
+            storyController.OpenStory();
+        }
+        else
+        {
+            // Neu khong tim thay StoryController, load thang nhu cu (du phong)
+            SceneManager.LoadScene(selectedLevel);
+        }
     }
 }
