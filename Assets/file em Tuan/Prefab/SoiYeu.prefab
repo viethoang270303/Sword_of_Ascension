@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 1162686511151303603}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 467.4676, y: -2.8835626, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 468.1662, y: -0.0665, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -432731726981308715, guid: c8b08ee6ea1caf445ad526fd4157b6eb, type: 3}
+  m_Sprite: {fileID: 6545916450272935566, guid: 2ed310bd424b655499ac1ef55a0defdc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,7 +105,7 @@ Animator:
   m_GameObject: {fileID: 1162686511151303603}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c814a0cab4cb755468089b23b156142c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2d3ca6e9f6fe9c646ad99cdf8f1902b1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -156,12 +156,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6d5a0d3110505438e2a489629a6873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyScript
-  health: 2
   speed: 2
-  damageToPlayer: 10
+  health: 2
+  healthBonusPerMinute: 2
+  speedBonusPerMinute: 0.2
+  knockbackForce: 5
+  knockbackTime: 0.2
+  stopDistance: 0.6
   expGemPrefab: {fileID: 574087547811092190, guid: e80128f90ef92324999158e57611999e, type: 3}
-  healthPotionPrefab: {fileID: 9187615419504321209, guid: 99ec7df737fcdcf41a47fb5a8b0ff710, type: 3}
-  potionDropRate: 0.3
+  damagePopupPrefab: {fileID: 0}
 --- !u!61 &2934856906819879463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -196,15 +199,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0009461194, y: 0.005696237}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.78, y: 0.86}
+    oldSize: {x: 0.27, y: 0.21}
     newSize: {x: 0.78, y: 0.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.78, y: 0.86}
+  m_Size: {x: 0.25591388, y: 0.22202393}
   m_EdgeRadius: 0
