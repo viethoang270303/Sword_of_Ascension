@@ -7,20 +7,38 @@ using UnityEngine.SceneManagement;
 public class RegisterController : MonoBehaviour
 {
     [Header("UI References")]
-    public TMP_InputField emailInput;
+    public TMP_InputField emailInput;          // Dùng ô này làm TÊN TÀI KHOẢN
     public TMP_InputField passwordInput;
     public TMP_InputField confirmPasswordInput;
     public TMP_Text messageText;
 
+    // Domain nội bộ, người chơi không cần biết
+    private const string AccountDomain = "@mygame.local";
+
     public void OnRegisterButtonClicked()
     {
-        string email = emailInput.text.Trim();
+        string username = emailInput.text.Trim();
         string password = passwordInput.text;
         string confirmPassword = confirmPasswordInput.text;
 
-        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        // Kiểm tra tên tài khoản
+        if (string.IsNullOrEmpty(username))
         {
-            ShowMessage("Vui lòng nhập Email và Mật khẩu.");
+            ShowMessage("Vui lòng nhập tên tài khoản.");
+            return;
+        }
+
+        // Không cho nhập khoảng trắng
+        if (username.Contains(" "))
+        {
+            ShowMessage("Tên tài khoản không được có khoảng trắng.");
+            return;
+        }
+
+        // Kiểm tra mật khẩu
+        if (string.IsNullOrEmpty(password))
+        {
+            ShowMessage("Vui lòng nhập mật khẩu.");
             return;
         }
 
@@ -48,10 +66,13 @@ public class RegisterController : MonoBehaviour
             return;
         }
 
-        Register(email, password);
+        // Tạo email ảo từ username
+        string firebaseEmail = username.ToLower() + AccountDomain;
+
+        Register(firebaseEmail, username, password);
     }
 
-    private void Register(string email, string password)
+    private void Register(string email, string username, string password)
     {
         ShowMessage("Đang tạo tài khoản...");
 
@@ -76,13 +97,14 @@ public class RegisterController : MonoBehaviour
                         Debug.LogError(ex);
                     }
 
-                    ShowMessage(task.Exception.Flatten().InnerExceptions[0].Message);
+                    ShowMessage("Tên tài khoản đã tồn tại hoặc không hợp lệ.");
                     return;
                 }
 
                 FirebaseUser user = task.Result.User;
 
-                Debug.Log("Đăng ký thành công: " + user.Email);
+                Debug.Log("Đăng ký thành công: " + username);
+                Debug.Log("Firebase account: " + user.Email);
 
                 ShowMessage("Đăng ký thành công!");
 
