@@ -592,3 +592,6 @@ MonoBehaviour:
   currentExp: 0
   expToNextLevel: 100
   expBar: {fileID: 0}
+  cauNuocPrefab: {fileID: 0}
+  swordPrefab: {fileID: 0}
+  playerTransform: {fileID: 0}

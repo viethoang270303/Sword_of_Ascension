@@ -7,22 +7,62 @@ using UnityEngine.SceneManagement;
 public class LoginController : MonoBehaviour
 {
     [Header("UI References")]
+
+    // Ô này có thể nhập:
+    // 1. username: khanh
+    // 2. email cũ: khanh@gmail.com
     public TMP_InputField emailInput;
+
     public TMP_InputField passwordInput;
     public TMP_Text messageText;
 
-    // Biến dùng chung cho toàn game
+    // =========================
+    // ADMIN
+    // =========================
     public static bool isAdmin = false;
 
-    // Nút Log In
+    // Tài khoản username sẽ được chuyển thành email nội bộ
+    // Ví dụ:
+    // toan -> toan@mygame.local
+    private const string AccountDomain = "@mygame.local";
+
+    // Email admin cũ của bạn
+    private const string AdminEmail = "khanh@gmail.com";
+
+
+    // =========================================================
+    // NÚT LOGIN
+    // =========================================================
+
     public void OnLoginButtonClicked()
     {
-        string email = emailInput.text.Trim();
+        string usernameOrEmail = emailInput.text.Trim();
         string password = passwordInput.text;
 
-        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        // -------------------------
+        // Kiểm tra input
+        // -------------------------
+
+        if (string.IsNullOrEmpty(usernameOrEmail))
         {
-            ShowMessage("Vui lòng nhập Email và Mật khẩu.");
+            ShowMessage("Vui lòng nhập Tên tài khoản.");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(password))
+        {
+            ShowMessage("Vui lòng nhập Mật khẩu.");
+            return;
+        }
+
+
+        // -------------------------
+        // Kiểm tra Firebase
+        // -------------------------
+
+        if (FirebaseManager.Instance == null)
+        {
+            ShowMessage("Không tìm thấy FirebaseManager.");
             return;
         }
 
@@ -32,10 +72,47 @@ public class LoginController : MonoBehaviour
             return;
         }
 
-        Login(email, password);
+
+        // -------------------------
+        // Chuyển username -> email
+        // -------------------------
+
+        string firebaseEmail;
+
+        if (usernameOrEmail.Contains("@"))
+        {
+            // Nếu người dùng nhập email thật
+            // Ví dụ:
+            // khanh@gmail.com
+
+            firebaseEmail = usernameOrEmail.ToLower();
+        }
+        else
+        {
+            // Nếu người dùng nhập username
+            // Ví dụ:
+            // toan
+
+            firebaseEmail = usernameOrEmail.ToLower() + AccountDomain;
+        }
+
+
+        Debug.Log("[Login] Input: " + usernameOrEmail);
+        Debug.Log("[Login] Firebase Email: " + firebaseEmail);
+
+
+        // -------------------------
+        // Login Firebase
+        // -------------------------
+
+        Login(firebaseEmail, password);
     }
 
-    // Đăng nhập Firebase
+
+    // =========================================================
+    // LOGIN FIREBASE
+    // =========================================================
+
     private void Login(string email, string password)
     {
         ShowMessage("Đang đăng nhập...");
@@ -45,50 +122,96 @@ public class LoginController : MonoBehaviour
         auth.SignInWithEmailAndPasswordAsync(email, password)
             .ContinueWithOnMainThread(task =>
             {
-                // Nếu lỗi
+                // =================================================
+                // LOGIN THẤT BẠI
+                // =================================================
+
                 if (task.IsCanceled || task.IsFaulted)
                 {
-                    string errorMessage = FirebaseErrorHelper.GetErrorMessage(task.Exception);
+                    Debug.LogError("===== LOGIN FIREBASE ERROR =====");
+
+                    if (task.Exception != null)
+                    {
+                        Debug.LogError(task.Exception);
+                    }
+
+                    string errorMessage =
+                        FirebaseErrorHelper.GetErrorMessage(task.Exception);
+
                     ShowMessage(errorMessage);
+
                     return;
                 }
 
-                // Thành công
+
+                // =================================================
+                // LOGIN THÀNH CÔNG
+                // =================================================
+
                 AuthResult result = task.Result;
+
                 FirebaseUser user = result.User;
 
-                Debug.Log("[Login] Đăng nhập thành công: " + user.Email);
+                if (user == null)
+                {
+                    ShowMessage("Không lấy được thông tin tài khoản.");
+                    return;
+                }
 
-                // ===== ADMIN =====
-                if (user.Email == "khanh@gmail.com")
+
+                Debug.Log("=================================");
+                Debug.Log("[Login] Đăng nhập thành công!");
+                Debug.Log("[Login] Firebase Email: " + user.Email);
+                Debug.Log("[Login] User ID: " + user.UserId);
+                Debug.Log("=================================");
+
+
+                // =================================================
+                // ADMIN
+                // =================================================
+
+                if (user.Email != null &&
+                    user.Email.ToLower() == AdminEmail.ToLower())
                 {
                     isAdmin = true;
+
                     ShowMessage("Đăng nhập ADMIN thành công!");
 
-                    Debug.Log("Load scene: Main Menu Admin");
+                    Debug.Log("[Login] ADMIN");
+                    Debug.Log("[Login] Load scene: Main Menu Admin");
 
-                    // LOAD TRỰC TIẾP SCENE ADMIN
                     SceneManager.LoadScene("Main Menu Admin");
-                }
-                // ===== USER THƯỜNG =====
-                else
-                {
-                    isAdmin = false;
-                    ShowMessage("Đăng nhập thành công!");
 
-                    Debug.Log("Load scene: Main Menu");
-
-                    // LOAD TRỰC TIẾP SCENE THƯỜNG
-                    SceneManager.LoadScene("Main Menu");
+                    return;
                 }
+
+
+                // =================================================
+                // USER THƯỜNG
+                // =================================================
+
+                isAdmin = false;
+
+                ShowMessage("Đăng nhập thành công!");
+
+                Debug.Log("[Login] USER");
+                Debug.Log("[Login] Load scene: Main Menu");
+
+                SceneManager.LoadScene("Main Menu");
             });
     }
 
-    // Hiển thị thông báo
+
+    // =========================================================
+    // HIỂN THỊ MESSAGE
+    // =========================================================
+
     private void ShowMessage(string msg)
     {
         if (messageText != null)
+        {
             messageText.text = msg;
+        }
 
         Debug.Log("[Login] " + msg);
     }
