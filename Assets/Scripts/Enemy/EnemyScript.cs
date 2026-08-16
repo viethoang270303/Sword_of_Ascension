@@ -21,6 +21,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject damagePopupPrefab; // Kéo Prefab chữ sát thương vào đây
 
     private Transform player;
+    private PlayerHealth playerHealthRef;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isDead = false;
@@ -35,7 +36,11 @@ public class EnemyScript : MonoBehaviour
         speed += (minutesPassed * speedBonusPerMinute);
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null) player = playerObj.transform;
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+            playerHealthRef = playerObj.GetComponent<PlayerHealth>();
+        }
     }
 
     void FixedUpdate()
@@ -69,6 +74,9 @@ public class EnemyScript : MonoBehaviour
 
         health -= damageAmount;
         ShowDamagePopup(damageAmount);
+
+        if (playerHealthRef != null) playerHealthRef.ApplyLifesteal(damageAmount);
+
         CheckDeath();
     }
 
@@ -119,7 +127,9 @@ public class EnemyScript : MonoBehaviour
             }
 
             health -= damageToTake;
-            ShowDamagePopup(damageToTake); // Gọi số sát thương bay ra
+            ShowDamagePopup(damageToTake);
+
+            if (playerHealthRef != null) playerHealthRef.ApplyLifesteal(damageToTake);
 
             knockbackCounter = knockbackTime;
             Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;

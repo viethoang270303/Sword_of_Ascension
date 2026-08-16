@@ -7,6 +7,12 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public Slider healthBar;
 
+    [Header("Chỉ số phòng thủ")]
+    public float defense = 0f;
+
+    [Header("Hút máu")]
+    public float lifesteal = 0f;
+
     [Header("Thời gian bất tử")]
     public float invincibilityDuration = 0.5f;
     private float nextDamageTime;
@@ -37,10 +43,11 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0) return;
         if (Time.time < nextDamageTime) return;
 
-        currentHealth -= damage;
+        int actualDamage = Mathf.Max(1, Mathf.RoundToInt(damage * (1f - defense)));
+        currentHealth -= actualDamage;
         nextDamageTime = Time.time + invincibilityDuration;
 
-        ShowDamagePopup(damage);
+        ShowDamagePopup(actualDamage);
 
         UpdateUI();
 
@@ -65,6 +72,16 @@ public class PlayerHealth : MonoBehaviour
     public void UpdateUI()
     {
         if (healthBar != null) healthBar.value = currentHealth;
+    }
+
+    public void ApplyLifesteal(int damageDealt)
+    {
+        if (lifesteal <= 0f) return;
+
+        int healAmount = Mathf.Max(1, Mathf.RoundToInt(damageDealt * lifesteal));
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        UpdateUI();
     }
 
     void Die()
