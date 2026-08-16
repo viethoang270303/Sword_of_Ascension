@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: LinhPhu
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
-  description: 
-  icon: {fileID: 0}
-  itemType: 0
+  description: "Ph\xF3ng ra l\xE1 b\xF9a v\xE0o v\u1ECB tr\xED m\u1EE5c ti\xEAu g\u1EA7n
+    nh\u1EA5t, ch\u1EA1m v\xE0o m\u1EE5c ti\xEAu l\xE1 b\xF9a s\u1EBD ph\xE1t n\u1ED5"
+  icon: {fileID: 7737642272890727335, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
+  itemType: 1
   damagePercent: 0
   defensePercent: 0
   moveSpeedPercent: 0

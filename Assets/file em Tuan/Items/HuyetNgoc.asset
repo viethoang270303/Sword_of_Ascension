@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: HuyetNgoc
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
-  description: 
-  icon: {fileID: 0}
+  description: "T\u0103ng 5% h\xFAt m\xE1u khi g\xE2y s\xE1t th\u01B0\u01A1ng"
+  icon: {fileID: 7772927968160587980, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
   itemType: 0
   damagePercent: 0
   defensePercent: 0
   moveSpeedPercent: 0
   cooldownPercent: 0
-  lifestealPercent: 0
+  lifestealPercent: 5
   pickupRangePercent: 0
   healPercent: 0

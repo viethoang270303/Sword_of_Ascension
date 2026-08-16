@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PhongNhan
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
-  description: 
-  icon: {fileID: 0}
-  itemType: 0
+  description: "T\u1EA1o ra 1 l\u01B0\u1EE1i \u0111ao gi\xF3 3 gi\xE2y xu\u1EA5t
+    hi\u1EC7n 1 l\u1EA7n g\xE2y st t\u1EA7m g\u1EA7n l\xEAn qu\xE1i quanh nv"
+  icon: {fileID: -2659596061229472709, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
+  itemType: 1
   damagePercent: 0
   defensePercent: 0
   moveSpeedPercent: 0

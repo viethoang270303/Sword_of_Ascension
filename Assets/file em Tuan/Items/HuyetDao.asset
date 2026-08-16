@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: HuyetDao
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
-  description: 
-  icon: {fileID: 0}
-  itemType: 0
+  description: "Ch\xE9m theo h\xECnh qu\u1EA1t tr\u01B0\u1EDBc m\u1EB7t, c\xF3 kh\u1EA3
+    n\u0103ng h\xFAt m\xE1u"
+  icon: {fileID: -3532956831678624325, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
+  itemType: 1
   damagePercent: 0
   defensePercent: 0
   moveSpeedPercent: 0

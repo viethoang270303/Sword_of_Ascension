@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DanDuoc
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
-  description: 
-  icon: {fileID: 0}
+  description: "H\u1ED3i ph\u1EE5c 35% m\xE1u"
+  icon: {fileID: 5787493595634422566, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
   itemType: 0
   damagePercent: 0
   defensePercent: 0
@@ -22,4 +22,4 @@ MonoBehaviour:
   cooldownPercent: 0
   lifestealPercent: 0
   pickupRangePercent: 0
-  healPercent: 0
+  healPercent: 35

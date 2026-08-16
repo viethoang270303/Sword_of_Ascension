@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: ThienLoi
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
-  description: 
-  icon: {fileID: 0}
-  itemType: 0
+  description: "Tri\u1EC7u h\u1ED3i tia s\xE9t ng\u1EABu nhi\xEAn \u0111\xE1nh xu\u1ED1ng
+    k\u1EBB \u0111\u1ECBch"
+  icon: {fileID: 2586309012062497433, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
+  itemType: 1
   damagePercent: 0
   defensePercent: 0
   moveSpeedPercent: 0

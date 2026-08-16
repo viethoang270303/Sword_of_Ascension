@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: HoaLien
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
-  description: 
-  icon: {fileID: 0}
-  itemType: 0
+  description: "B\u1EAFn ra qu\u1EA3 c\u1EA7u l\u1EEDa l\xFAc ch\u1EA1m \u0111\u1ECBch
+    s\u1EBD ph\xE1t n\u1ED5 g\xE2y st di\u1EC7n r\u1ED9ng"
+  icon: {fileID: 8826601337618295902, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
+  itemType: 1
   damagePercent: 0
   defensePercent: 0
   moveSpeedPercent: 0

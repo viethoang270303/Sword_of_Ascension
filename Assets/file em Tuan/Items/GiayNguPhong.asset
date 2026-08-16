@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: GiayNguPhong
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: 
-  description: 
-  icon: {fileID: 0}
+  description: "T\u0103ng 15% t\u1ED1c \u0111\u1ED9 di chuy\u1EC3n"
+  icon: {fileID: -6858245753727508640, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
   itemType: 0
   damagePercent: 0
   defensePercent: 0
-  moveSpeedPercent: 0
+  moveSpeedPercent: 15
   cooldownPercent: 0
   lifestealPercent: 0
   pickupRangePercent: 0
