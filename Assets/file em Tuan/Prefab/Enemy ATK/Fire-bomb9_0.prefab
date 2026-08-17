@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8987766725340633526}
   m_Layer: 0
   m_Name: Fire-bomb9_0
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

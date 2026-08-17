@@ -24,7 +24,7 @@ public class PlayerSpawner : MonoBehaviour
 
             currentPlayer = Instantiate(characterPrefabs[index], pos, Quaternion.identity);
 
-            var cam = FindObjectOfType<Unity.Cinemachine.CinemachineCamera>();
+            var cam = FindFirstObjectByType<Unity.Cinemachine.CinemachineCamera>();
             if (cam != null) { cam.Follow = currentPlayer.transform; cam.LookAt = currentPlayer.transform; }
         }
     }

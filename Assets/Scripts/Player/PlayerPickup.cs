@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
 {
-    [Header("Phạm vi hút vật phẩm")]
+    [Header("Phạm vi nhặt EXP")]
     public float pickupRange = 2f;
 
     private CircleCollider2D pickupCollider;
 
     void Awake()
     {
-        pickupCollider = gameObject.AddComponent<CircleCollider2D>();
+        pickupCollider = GetComponent<CircleCollider2D>();
+
+        if (pickupCollider == null)
+        {
+            pickupCollider = gameObject.AddComponent<CircleCollider2D>();
+        }
+
         pickupCollider.isTrigger = true;
         pickupCollider.radius = pickupRange;
     }
@@ -17,6 +23,13 @@ public class PlayerPickup : MonoBehaviour
     public void IncreasePickupRange(float percent)
     {
         pickupRange *= (1f + percent);
-        pickupCollider.radius = pickupRange;
+
+        if (pickupCollider != null)
+            pickupCollider.radius = pickupRange;
+
+        Debug.Log(
+            "Pickup Range hiện tại: " +
+            pickupRange
+        );
     }
 }

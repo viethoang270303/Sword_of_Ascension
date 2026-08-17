@@ -349,6 +349,10 @@ GameObject:
   - component: {fileID: 4117974618989209276}
   - component: {fileID: 4061961704837799131}
   - component: {fileID: 3083605053297930582}
+  - component: {fileID: 4316885073294814414}
+  - component: {fileID: 2477384424840026643}
+  - component: {fileID: -3039806604548391317}
+  - component: {fileID: 8922525863754388521}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -494,7 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 3
-  maxHealth: 100
+  maxHealth: 150
 --- !u!114 &51181179439607171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 100
   currentHealth: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 7117461254144614209}
+  defense: 0
+  lifesteal: 0
   invincibilityDuration: 0.5
   damagePopupPrefab: {fileID: 6410596751719504053, guid: bb9cf48e67d70744b970b5597fea87fa, type: 3}
   gameOverPanel: {fileID: 0}
@@ -587,11 +593,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1848c0ed3b5d745438a9d08c50f39041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLevel
-  playerDamage: 1
+  playerDamage: 4
   currentLevel: 1
   currentExp: 0
   expToNextLevel: 100
   expBar: {fileID: 0}
-  cauNuocPrefab: {fileID: 0}
+  ThuyCauPrefab: {fileID: 7566782641627064233, guid: 64e004f7159dd8a48b7f02465e5c6b7e, type: 3}
   swordPrefab: {fileID: 0}
-  playerTransform: {fileID: 0}
+  autoSlashPrefab: {fileID: 5810565115824167742, guid: 96f24ced0c7f964419776f00f474de84, type: 3}
+--- !u!114 &4316885073294814414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210232253191677158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ccb283df0f0494aa0ed0445e18ac7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollowMe
+--- !u!114 &2477384424840026643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210232253191677158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1289d3beaa4831a48ae70119fd3c3920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoWeapon
+  bulletPrefab: {fileID: 6036433029794523793, guid: ae693ee88c08c4c47be30f727dbcd93b, type: 3}
+  firePoint: {fileID: 1402787693790086720}
+  fireRate: 2
+  initialBulletCount: 1
+  timeToUpgrade: 15
+  maxBullets: 15
+--- !u!114 &-3039806604548391317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210232253191677158}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d9fc980e27d6b7429871fe774aba8b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoSlash
+  autoSlashPrefab: {fileID: 5810565115824167742, guid: 96f24ced0c7f964419776f00f474de84, type: 3}
+  damage: 15
+  attackRate: 0.2
+  spawnDistance: 1.5
+  slashLifeTime: 0.2
+--- !u!114 &8922525863754388521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210232253191677158}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567e319cea112a14bbed7901968215e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultThuyCau
+  thuyCauPrefab: {fileID: 7566782641627064233, guid: 64e004f7159dd8a48b7f02465e5c6b7e, type: 3}
+  orbitRadius: 1.5
+  orbitSpeed: 100
+  currentCount: 1
+  maxCount: 3

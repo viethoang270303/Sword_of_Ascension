@@ -28,6 +28,12 @@ public class LevelUpItemController : MonoBehaviour
 
     private ItemData currentItem1;
     private ItemData currentItem2;
+    private PlayerLevel playerLevel;
+    private PlayerHealth playerHealth;
+    private PlayerMovement playerMovement;
+    private PlayerShoot playerShoot;
+    private PlayerPickup playerPickup;
+    private AutoSlash autoSlash;
 
     // Số lần đã Reroll
     private int rerollCount = 0;
@@ -36,20 +42,38 @@ public class LevelUpItemController : MonoBehaviour
     private const int maxRerolls = 2;
 
     private void Start()
+{
+    // Tìm Player
+    GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+    if (player != null)
     {
-        if (itemButton1 != null)
-            itemButton1.onClick.AddListener(ChooseItem1);
+        playerLevel = player.GetComponent<PlayerLevel>();
+        playerHealth = player.GetComponent<PlayerHealth>();
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerShoot = player.GetComponent<PlayerShoot>();
+        playerPickup = player.GetComponent<PlayerPickup>();
+        autoSlash = player.GetComponent<AutoSlash>();
 
-        if (itemButton2 != null)
-            itemButton2.onClick.AddListener(ChooseItem2);
-
-        if (rerollButton != null)
-            rerollButton.onClick.AddListener(Reroll);
-
-        // Hiển thị chữ trên nút Reroll lúc mới bắt đầu
-        UpdateRerollUI();
-        ShowRandomItems();
+        Debug.Log("Đã tìm thấy Player cho hệ thống Item.");
     }
+    else
+    {
+        Debug.LogError("Không tìm thấy Player có Tag = Player!");
+    }
+
+    if (itemButton1 != null)
+        itemButton1.onClick.AddListener(ChooseItem1);
+
+    if (itemButton2 != null)
+        itemButton2.onClick.AddListener(ChooseItem2);
+
+    if (rerollButton != null)
+        rerollButton.onClick.AddListener(Reroll);
+
+    UpdateRerollUI();
+    ShowRandomItems();
+}
 
     public void ShowRandomItems()
     {
@@ -159,18 +183,126 @@ public class LevelUpItemController : MonoBehaviour
         ChooseItem(currentItem2);
     }
 
-    private void ChooseItem(ItemData item)
+private void ChooseItem(ItemData item)
+{
+    if (item == null)
+        return;
+
+    Debug.Log("Đã chọn item: " + item.itemName);
+
+    // HUYỀN THIẾT
+    if (item.damagePercent != 0 && playerLevel != null)
     {
-        if (item == null)
-            return;
+        playerLevel.playerDamage = Mathf.RoundToInt(
+            playerLevel.playerDamage *
+            (1f + item.damagePercent)
+        );
 
-        Debug.Log("Đã chọn item: " + item.itemName);
-
-        // Bước sau sẽ xử lý cộng hiệu ứng vào Player.
-
-        if (levelUpPanel != null)
-            levelUpPanel.SetActive(false);
+        Debug.Log(
+            "Damage hiện tại: " +
+            playerLevel.playerDamage
+        );
     }
+
+    // GIÀY NGỰ PHONG
+    if (item.moveSpeedPercent != 0 && playerMovement != null)
+    {
+        playerMovement.speed *=
+            (1f + item.moveSpeedPercent);
+
+        Debug.Log(
+            "Speed hiện tại: " +
+            playerMovement.speed
+        );
+    }
+
+    // LINH GIÁP
+    if (item.defensePercent != 0 && playerHealth != null)
+    {
+        playerHealth.defense +=
+            item.defensePercent;
+
+        Debug.Log(
+            "Defense hiện tại: " +
+            playerHealth.defense
+        );
+    }
+
+    // LINH CHÂU
+    if (item.cooldownPercent != 0 && playerShoot != null)
+    {
+        playerShoot.fireRate *=
+            (1f - item.cooldownPercent);
+
+        if (playerShoot.fireRate < 0.05f)
+            playerShoot.fireRate = 0.05f;
+
+        Debug.Log(
+            "Fire Rate hiện tại: " +
+            playerShoot.fireRate
+        );
+    }
+
+    // HUYẾT NGỌC
+    if (item.lifestealPercent != 0 && playerHealth != null)
+    {
+        playerHealth.lifesteal +=
+            item.lifestealPercent;
+
+        Debug.Log(
+            "Lifesteal hiện tại: " +
+            (playerHealth.lifesteal * 100f) +
+            "%"
+        );
+    }
+
+    // TỤ LINH PHÙ
+    if (item.pickupRangePercent != 0 && playerPickup != null)
+    {
+        playerPickup.IncreasePickupRange(
+            item.pickupRangePercent
+        );
+
+        Debug.Log(
+            "Pickup Range hiện tại: " +
+            playerPickup.pickupRange
+        );
+    }
+    //ĐAN DƯỢC - HỒI MÁU 
+    if (item.healPercent != 0 && playerHealth != null)
+{
+    int healAmount = Mathf.RoundToInt(
+        playerHealth.maxHealth * item.healPercent
+    );
+
+    playerHealth.currentHealth += healAmount;
+
+    if (playerHealth.currentHealth > playerHealth.maxHealth)
+        playerHealth.currentHealth = playerHealth.maxHealth;
+
+    playerHealth.UpdateUI();
+
+    Debug.Log(
+        "Đã hồi " + healAmount +
+        " máu. Máu hiện tại: " +
+        playerHealth.currentHealth
+    );
+}
+    // HUYẾT ĐAO
+if (item.itemName == "Huyết Đao" && autoSlash != null)
+{
+    autoSlash.enabled = true;
+
+    Debug.Log("Đã mở khóa Huyết Đao!");
+}
+
+    // Đóng bảng
+    if (levelUpPanel != null)
+        levelUpPanel.SetActive(false);
+
+    // Cho game chạy tiếp
+    Time.timeScale = 1f;
+}
 
     // =========================
     // MỞ LEVEL UP

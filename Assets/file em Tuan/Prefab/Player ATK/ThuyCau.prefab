@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4928410985317133061}
   - component: {fileID: 6612445233356156367}
   m_Layer: 0
-  m_Name: CauNuoc_Orbiter
+  m_Name: ThuyCau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7566782641627064233}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f00c41a3657a859449e7e6808bde789b, type: 3}
   m_Name: 
@@ -177,3 +177,4 @@ MonoBehaviour:
   playerTarget: {fileID: 0}
   rotateSpeed: 250
   orbitRadius: 2
+  damage: 10
