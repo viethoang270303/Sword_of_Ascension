@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6717613213540479660}
   - component: {fileID: 9095007863199596088}
   - component: {fileID: 4666451822690374163}
-  - component: {fileID: 3869372446710626701}
+  - component: {fileID: 6542913264125278337}
+  - component: {fileID: 2835367103877915392}
   m_Layer: 0
   m_Name: Lightning1_0
   m_TagString: Untagged
@@ -162,7 +163,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.64, y: 1.27}
   m_EdgeRadius: 0
---- !u!114 &3869372446710626701
+--- !u!114 &6542913264125278337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,8 +172,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 4784697566495425320}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a14e5d3da60a64fbde904cc4133e0a, type: 3}
+  m_Script: {fileID: 11500000, guid: fadcebc35c78a194dbf9de3175570e5c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SlashAttack
-  damage: 15
-  lifeTime: 1
+  m_EditorClassIdentifier: Assembly-CSharp::LightningDamage
+  damage: 100
+  lifeTime: 0.8
+--- !u!50 &2835367103877915392
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784697566495425320}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

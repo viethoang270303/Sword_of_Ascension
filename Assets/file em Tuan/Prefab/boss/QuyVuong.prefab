@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d82a6abb2915ea42920b4ea7ed8914d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DemonBoss
-  maxHealth: 100
+  maxHealth: 200
   speed: 2
   attackRange: 2
   attackCooldown: 2
