@@ -33,7 +33,6 @@ public class LevelCharacterSelectController : MonoBehaviour
     public TextMeshProUGUI playerInfoDescText;
     public Image playerInfoPortraitImage;
 
-    // --- MỚI THÊM: Nút Bắt Đầu Chơi ---
     [Header("Nut Bat Dau Choi")]
     public Button startGameButton;
 
@@ -72,7 +71,6 @@ public class LevelCharacterSelectController : MonoBehaviour
         this.playerInfoDescText = clone.playerInfoDescText;
         this.playerInfoPortraitImage = clone.playerInfoPortraitImage;
 
-        // Truyền cả nút Bắt Đầu sang
         this.startGameButton = clone.startGameButton;
 
         this.KhoiTaoMenu();
@@ -83,6 +81,20 @@ public class LevelCharacterSelectController : MonoBehaviour
         RefreshLevelLockState();
         if (playerInfoPanel != null)
             playerInfoPanel.SetActive(false);
+
+        // --- BẢN VÁ: Tự động gắn hàm cho các nút Chọn Màn Chơi (Chống đứt link) ---
+        if (levelButtons != null)
+        {
+            for (int i = 0; i < levelButtons.Length; i++)
+            {
+                int index = i;
+                if (levelButtons[i] != null)
+                {
+                    levelButtons[i].onClick.RemoveAllListeners();
+                    levelButtons[i].onClick.AddListener(() => ChonMan(index));
+                }
+            }
+        }
 
         if (characterButtons != null)
         {
@@ -97,11 +109,10 @@ public class LevelCharacterSelectController : MonoBehaviour
             }
         }
 
-        // --- AUTO SETUP: Tự động gắn hàm cho nút Bắt Đầu ---
         if (startGameButton != null)
         {
-            startGameButton.onClick.RemoveAllListeners(); // Xóa liên kết cũ bị hỏng
-            startGameButton.onClick.AddListener(BatDauChoi); // Trói chặt vào hàm BatDauChoi
+            startGameButton.onClick.RemoveAllListeners();
+            startGameButton.onClick.AddListener(BatDauChoi);
         }
     }
 
@@ -168,6 +179,32 @@ public class LevelCharacterSelectController : MonoBehaviour
         else
         {
             SceneManager.LoadScene(selectedLevel);
+        }
+    }
+
+    // ===============================================
+    // HÀM RESET GIAO DIỆN (Bác gắn cái này vào nút X đóng Menu nhé)
+    // ===============================================
+    public void ResetGiaoDienKhiDong()
+    {
+        if (playerInfoPanel != null) playerInfoPanel.SetActive(false);
+
+        selectedCharacter = -1;
+        if (characterHighlights != null)
+        {
+            foreach (var hl in characterHighlights)
+            {
+                if (hl != null) hl.SetActive(false);
+            }
+        }
+
+        selectedLevel = "";
+        if (levelHighlights != null)
+        {
+            foreach (var hl in levelHighlights)
+            {
+                if (hl != null) hl.SetActive(false);
+            }
         }
     }
 }
