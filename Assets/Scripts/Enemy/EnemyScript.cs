@@ -18,7 +18,12 @@ public class EnemyScript : MonoBehaviour
 
     [Header("Hiệu ứng & Vật phẩm")]
     public GameObject expGemPrefab;
-    public GameObject damagePopupPrefab; // Kéo Prefab chữ sát thương vào đây
+    public GameObject damagePopupPrefab;
+
+    // --- MỚI THÊM: Nút sửa lỗi đi lùi cho từng con quái ---
+    [Header("Cài đặt Hình ảnh")]
+    [Tooltip("Tích vào đây nếu con quái này bị lỗi đi lùi (moonwalk)")]
+    public bool latNguocHinhAnh = false;
 
     private Transform player;
     private PlayerHealth playerHealthRef;
@@ -61,8 +66,15 @@ public class EnemyScript : MonoBehaviour
             if (distanceToPlayer > stopDistance) rb.linearVelocity = direction * speed;
             else rb.linearVelocity = Vector2.zero;
 
-            if (direction.x < 0) spriteRenderer.flipX = true;
-            else if (direction.x > 0) spriteRenderer.flipX = false;
+            // --- XỬ LÝ LẬT HÌNH THÔNG MINH ---
+            if (direction.x < 0)
+            {
+                spriteRenderer.flipX = latNguocHinhAnh ? false : true;
+            }
+            else if (direction.x > 0)
+            {
+                spriteRenderer.flipX = latNguocHinhAnh ? true : false;
+            }
         }
         else rb.linearVelocity = Vector2.zero;
     }
@@ -85,7 +97,6 @@ public class EnemyScript : MonoBehaviour
     {
         if (damagePopupPrefab != null)
         {
-            // Sinh ra chữ độc lập giữa không trung, KHÔNG dính vào quái
             GameObject popup = Instantiate(damagePopupPrefab, transform.position, Quaternion.identity);
             DamagePopup popupScript = popup.GetComponent<DamagePopup>();
             if (popupScript != null)
@@ -102,7 +113,7 @@ public class EnemyScript : MonoBehaviour
             isDead = true;
             if (expGemPrefab != null) Instantiate(expGemPrefab, transform.position, Quaternion.identity);
 
-            // ---> BÁO CÁO VỀ TỔNG ĐÀI ĐỂ CỘNG ĐIỂM <---
+            // Báo cáo về tổng đài để cộng điểm
             if (GameManager.instance != null)
             {
                 GameManager.instance.AddKill();
@@ -114,56 +125,53 @@ public class EnemyScript : MonoBehaviour
 
     // Khi Đạn bắn trúng
     void OnTriggerEnter2D(Collider2D other)
-{
-    if (isDead) return;
-
-    BulletScript bullet = other.GetComponent<BulletScript>();
-
-    if (bullet == null)
-        return;
-
-    int damageToTake = 1;
-
-    if (player != null)
     {
-        PlayerLevel pLevel = player.GetComponent<PlayerLevel>();
+        if (isDead) return;
 
-        if (pLevel != null)
-            damageToTake = pLevel.playerDamage;
+        BulletScript bullet = other.GetComponent<BulletScript>();
+
+        if (bullet == null)
+            return;
+
+        int damageToTake = 1;
+
+        if (player != null)
+        {
+            PlayerLevel pLevel = player.GetComponent<PlayerLevel>();
+
+            if (pLevel != null)
+                damageToTake = pLevel.playerDamage;
+        }
+
+        // Trừ máu Enemy
+        health -= damageToTake;
+
+        // Hiện damage
+        ShowDamagePopup(damageToTake);
+
+        // Hút máu cho Player
+        if (playerHealthRef != null)
+            playerHealthRef.ApplyLifesteal(damageToTake);
+
+        // Knockback
+        knockbackCounter = knockbackTime;
+
+        Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.AddForce(
+                knockbackDirection * knockbackForce,
+                ForceMode2D.Impulse
+            );
+        }
+
+        // Hủy đạn Player
+        Destroy(other.gameObject);
+
+        CheckDeath();
     }
-
-    // Trừ máu Enemy
-    health -= damageToTake;
-
-    // Hiện damage
-    ShowDamagePopup(damageToTake);
-
-    // Hút máu cho Player
-    if (playerHealthRef != null)
-        playerHealthRef.ApplyLifesteal(damageToTake);
-
-    // Knockback
-    knockbackCounter = knockbackTime;
-
-    Vector2 knockbackDirection =
-        (transform.position - other.transform.position).normalized;
-
-    // Chỉ knockback nếu Enemy có Rigidbody2D
-    if (rb != null)
-    {
-        rb.linearVelocity = Vector2.zero;
-        rb.AddForce(
-            knockbackDirection * knockbackForce,
-            ForceMode2D.Impulse
-        );
-    }
-
-    // Hủy đạn Player
-    Destroy(other.gameObject);
-
-    // Kiểm tra chết
-    CheckDeath();
-}
 
     void OnCollisionEnter2D(Collision2D collision)
     {

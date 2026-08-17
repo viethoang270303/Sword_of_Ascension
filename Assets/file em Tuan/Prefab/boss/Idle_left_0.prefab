@@ -446,7 +446,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.3681385, y: -0.045327306}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -456,7 +456,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.96, y: 3.0713327}
+  m_Size: {x: 1.9200426, y: 1.8475063}
   m_EdgeRadius: 0
 --- !u!82 &1716339220636147185
 AudioSource:
@@ -567,8 +567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725733ead7fd62b409e7b2cc6902d655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShadowDragonController
-  maxHealth: 500
-  moveSpeed: 2.5
+  maxHealth: 400
+  moveSpeed: 3
   attackRange: 3
   attackCooldown: 2.5
   damageToPlayer: 40

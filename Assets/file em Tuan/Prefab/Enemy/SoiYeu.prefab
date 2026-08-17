@@ -165,6 +165,7 @@ MonoBehaviour:
   stopDistance: 0.6
   expGemPrefab: {fileID: 574087547811092190, guid: e80128f90ef92324999158e57611999e, type: 3}
   damagePopupPrefab: {fileID: 0}
+  latNguocHinhAnh: 1
 --- !u!61 &2934856906819879463
 BoxCollider2D:
   m_ObjectHideFlags: 0
