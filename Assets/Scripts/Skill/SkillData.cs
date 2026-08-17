@@ -3,10 +3,14 @@ using UnityEngine;
 // Định nghĩa đúng 4 loại kỹ năng bạn yêu cầu
 public enum SkillType
 {
-    HoiMau,       // Hồi 30 HP
-    TangDameDan,  // Tăng sát thương đạn
-    TangTocChay,  // Tăng tốc độ di chuyển
-    KiemXoay      // Kiếm pha lê bay quanh người
+    HoiMau,
+    TangDameDan,
+    TangTocChay,
+    KiemXoay,
+    TangDefense,
+    GiamCooldown,
+    TangLifesteal,
+    TangPickupRange
 }
 
 [System.Serializable]

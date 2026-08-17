@@ -21,6 +21,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject damagePopupPrefab; // Kéo Prefab chữ sát thương vào đây
 
     private Transform player;
+    private PlayerHealth playerHealthRef;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private bool isDead = false;
@@ -35,7 +36,11 @@ public class EnemyScript : MonoBehaviour
         speed += (minutesPassed * speedBonusPerMinute);
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null) player = playerObj.transform;
+        if (playerObj != null)
+        {
+            player = playerObj.transform;
+            playerHealthRef = playerObj.GetComponent<PlayerHealth>();
+        }
     }
 
     void FixedUpdate()
@@ -69,6 +74,9 @@ public class EnemyScript : MonoBehaviour
 
         health -= damageAmount;
         ShowDamagePopup(damageAmount);
+
+        if (playerHealthRef != null) playerHealthRef.ApplyLifesteal(damageAmount);
+
         CheckDeath();
     }
 
@@ -106,30 +114,56 @@ public class EnemyScript : MonoBehaviour
 
     // Khi Đạn bắn trúng
     void OnTriggerEnter2D(Collider2D other)
+{
+    if (isDead) return;
+
+    BulletScript bullet = other.GetComponent<BulletScript>();
+
+    if (bullet == null)
+        return;
+
+    int damageToTake = 1;
+
+    if (player != null)
     {
-        if (isDead) return;
+        PlayerLevel pLevel = player.GetComponent<PlayerLevel>();
 
-        if (other.GetComponent<BulletScript>() != null)
-        {
-            int damageToTake = 1;
-            if (player != null)
-            {
-                PlayerLevel pLevel = player.GetComponent<PlayerLevel>();
-                if (pLevel != null) damageToTake = pLevel.playerDamage;
-            }
-
-            health -= damageToTake;
-            ShowDamagePopup(damageToTake); // Gọi số sát thương bay ra
-
-            knockbackCounter = knockbackTime;
-            Vector2 knockbackDirection = (transform.position - other.transform.position).normalized;
-            rb.linearVelocity = Vector2.zero;
-            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-
-            Destroy(other.gameObject);
-            CheckDeath();
-        }
+        if (pLevel != null)
+            damageToTake = pLevel.playerDamage;
     }
+
+    // Trừ máu Enemy
+    health -= damageToTake;
+
+    // Hiện damage
+    ShowDamagePopup(damageToTake);
+
+    // Hút máu cho Player
+    if (playerHealthRef != null)
+        playerHealthRef.ApplyLifesteal(damageToTake);
+
+    // Knockback
+    knockbackCounter = knockbackTime;
+
+    Vector2 knockbackDirection =
+        (transform.position - other.transform.position).normalized;
+
+    // Chỉ knockback nếu Enemy có Rigidbody2D
+    if (rb != null)
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(
+            knockbackDirection * knockbackForce,
+            ForceMode2D.Impulse
+        );
+    }
+
+    // Hủy đạn Player
+    Destroy(other.gameObject);
+
+    // Kiểm tra chết
+    CheckDeath();
+}
 
     void OnCollisionEnter2D(Collision2D collision)
     {

@@ -12,10 +12,11 @@ public class PlayerLevel : MonoBehaviour
 
     private SkillManager skillManager;
 
-    [Header("--- Kho Vũ Khí (Prefab) ---")]
-    public GameObject cauNuocPrefab;    // MÀN 2: Kéo Prefab Cầu Nước vào đây
-    public GameObject swordPrefab;      // MÀN 1: Kéo Prefab Kiếm Xoay vào đây
-    public Transform playerTransform;   // Kéo nhân vật Player vào đây (để biết chỗ đẻ vũ khí)
+    [Header("--- Kho Vũ Khí / Item ---")]
+    public GameObject ThuyCauPrefab;
+    public GameObject swordPrefab;
+    public GameObject autoSlashPrefab;
+
 
     void Start()
     {
@@ -53,35 +54,68 @@ public class PlayerLevel : MonoBehaviour
     // CÁC HÀM GẮN VÀO NÚT BẤM "CHỌN" TRÊN UI
     // ==========================================
 
-    // Hàm gọi Cầu Nước (Dùng cho Màn 2)
-    public void AddWaterOrb()
+// ==========================================
+// THỦY CẦU
+// ==========================================
+public void AddWaterOrb()
+{
+    if (ThuyCauPrefab != null)
     {
-        if (cauNuocPrefab != null)
-        {
-            // Tự động đẻ quả cầu nước tại vị trí của Player
-            Transform spawnPos = (playerTransform != null) ? playerTransform : transform;
-            Instantiate(cauNuocPrefab, spawnPos.position, Quaternion.identity);
+        Instantiate(
+            ThuyCauPrefab,
+            transform.position,
+            Quaternion.identity
+        );
 
-            Debug.Log("Đã chọn kỹ năng: Thêm 1 Cầu Nước!");
-        }
-
-        // Rã đông thời gian để game tiếp tục chạy
-        Time.timeScale = 1f;
+        Debug.Log("Đã chọn kỹ năng: Thủy Cầu!");
     }
 
-    // Hàm gọi Kiếm Xoay (Dùng cho Màn 1)
-    public void AddSword()
+    Time.timeScale = 1f;
+}
+
+
+// ==========================================
+// KIẾM XOAY
+// ==========================================
+public void AddSword()
+{
+    if (swordPrefab != null)
     {
-        if (swordPrefab != null)
-        {
-            Transform spawnPos = (playerTransform != null) ? playerTransform : transform;
-            Instantiate(swordPrefab, spawnPos.position, Quaternion.identity);
+        Instantiate(
+            swordPrefab,
+            transform.position,
+            Quaternion.identity
+        );
 
-            Debug.Log("Đã chọn kỹ năng: Thêm 1 Kiếm Xoay!");
-        }
-
-        Time.timeScale = 1f;
+        Debug.Log("Đã chọn kỹ năng: Kiếm Xoay!");
     }
+
+    Time.timeScale = 1f;
+}
+
+
+// ==========================================
+// HUYẾT ĐAO
+// ==========================================
+public void AddHuyetDao()
+{
+    if (autoSlashPrefab != null)
+    {
+        Instantiate(
+            autoSlashPrefab,
+            transform.position,
+            Quaternion.identity
+        );
+
+        Debug.Log("Đã chọn item: Huyết Đao!");
+    }
+    else
+    {
+        Debug.LogWarning("Chưa gán AutoSlash Prefab cho Player!");
+    }
+
+    Time.timeScale = 1f;
+}
 
     // ==========================================
     // HÀM GỌI TIA SÉT (Dùng cho Player mang kịch bản Sét)

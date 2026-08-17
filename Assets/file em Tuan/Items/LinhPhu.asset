@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9474f2e2c3524844890377c3916833fe, type: 3}
+  m_Name: LinhPhu
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  itemName: 
+  description: "Ph\xF3ng ra l\xE1 b\xF9a v\xE0o v\u1ECB tr\xED m\u1EE5c ti\xEAu g\u1EA7n
+    nh\u1EA5t, ch\u1EA1m v\xE0o m\u1EE5c ti\xEAu l\xE1 b\xF9a s\u1EBD ph\xE1t n\u1ED5"
+  icon: {fileID: 7737642272890727335, guid: f8bd22fd9ca64a54a8c542cb738cc5b7, type: 3}
+  itemType: 1
+  damagePercent: 0
+  defensePercent: 0
+  moveSpeedPercent: 0
+  cooldownPercent: 0
+  lifestealPercent: 0
+  pickupRangePercent: 0
+  healPercent: 0

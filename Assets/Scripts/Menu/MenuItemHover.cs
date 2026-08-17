@@ -16,12 +16,14 @@ public class MenuItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     private static AudioSource audioSource;
 
-    void Start()
+    // ĐỔI TỪ Start() THÀNH Awake() ĐỂ CHẠY TRƯỚC TIÊN
+    void Awake()
     {
         if (label == null)
             label = GetComponentInChildren<TextMeshProUGUI>();
 
-        label.color = normalColor;
+        if (label != null)
+            label.color = normalColor;
 
         if (audioSource == null)
         {
@@ -33,13 +35,13 @@ public class MenuItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        label.color = hoverColor;
+        if (label != null) label.color = hoverColor;
         PlaySound(hoverSound);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        label.color = normalColor;
+        if (label != null) label.color = normalColor;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -47,16 +49,17 @@ public class MenuItemHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         PlaySound(clickSound);
     }
 
-    // Kích hoạt khi được chọn bằng bàn phím/tay cầm
+    // Kích hoạt khi được chọn bằng bàn phím/tay cầm hoặc Auto Select
     public void OnSelect(BaseEventData eventData)
     {
-        label.color = hoverColor;
+        // Thêm kiểm tra null cho chắc ăn tuyệt đối
+        if (label != null) label.color = hoverColor;
         PlaySound(hoverSound);
     }
 
     public void OnDeselect(BaseEventData eventData)
     {
-        label.color = normalColor;
+        if (label != null) label.color = normalColor;
     }
 
     void PlaySound(AudioClip clip)

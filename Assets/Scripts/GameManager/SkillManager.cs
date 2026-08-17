@@ -17,6 +17,8 @@ public class SkillManager : MonoBehaviour
     private PlayerLevel playerLevel;
     private PlayerMovement playerMove;
     private PlayerHealth playerHealth;
+    private PlayerShoot playerShoot;
+    private PlayerPickup playerPickup;
 
     void Start()
     {
@@ -26,6 +28,8 @@ public class SkillManager : MonoBehaviour
             playerLevel = p.GetComponent<PlayerLevel>();
             playerMove = p.GetComponent<PlayerMovement>();
             playerHealth = p.GetComponent<PlayerHealth>();
+            playerShoot = p.GetComponent<PlayerShoot>();
+            playerPickup = p.GetComponent<PlayerPickup>();
         }
 
         if (levelUpPanel != null) levelUpPanel.SetActive(false);
@@ -97,6 +101,29 @@ public class SkillManager : MonoBehaviour
                 {
                     currentSword = Instantiate(swordSkillPrefab, playerMove.transform.position, Quaternion.identity);
                 }
+                break;
+
+            case SkillType.TangDefense:
+                if (playerHealth != null)
+                    playerHealth.defense += skill.value;
+                break;
+
+            case SkillType.GiamCooldown:
+                if (playerShoot != null)
+                {
+                    playerShoot.fireRate *= (1f - skill.value);
+                    if (playerShoot.fireRate < 0.05f) playerShoot.fireRate = 0.05f;
+                }
+                break;
+
+            case SkillType.TangLifesteal:
+                if (playerHealth != null)
+                    playerHealth.lifesteal += skill.value;
+                break;
+
+            case SkillType.TangPickupRange:
+                if (playerPickup != null)
+                    playerPickup.IncreasePickupRange(skill.value);
                 break;
         }
 

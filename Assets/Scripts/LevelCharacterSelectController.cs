@@ -14,6 +14,8 @@ public class PlayerData
 
 public class LevelCharacterSelectController : MonoBehaviour
 {
+    public static LevelCharacterSelectController instance;
+
     [Header("Nut chon man (theo dung thu tu)")]
     public GameObject[] levelHighlights;
     public string[] levelSceneNames = { "Manchoi1", "Manchoi2", "Manchoi3" };
@@ -21,8 +23,9 @@ public class LevelCharacterSelectController : MonoBehaviour
     public GameObject[] levelLockIcons;
 
     [Header("Nut chon nhan vat (theo dung thu tu)")]
+    public Button[] characterButtons;
     public GameObject[] characterHighlights;
-    public PlayerData[] playerDataList; // thong tin tung player
+    public PlayerData[] playerDataList;
 
     [Header("Panel hien thi thong tin Player")]
     public GameObject playerInfoPanel;
@@ -30,43 +33,100 @@ public class LevelCharacterSelectController : MonoBehaviour
     public TextMeshProUGUI playerInfoDescText;
     public Image playerInfoPortraitImage;
 
+    // --- MỚI THÊM: Nút Bắt Đầu Chơi ---
+    [Header("Nut Bat Dau Choi")]
+    public Button startGameButton;
+
     private string selectedLevel = "";
     private int selectedCharacter = -1;
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            instance.TruyenDuLieuUIChoBanGoc(this);
+        }
+    }
+
     void Start()
+    {
+        if (instance == this)
+        {
+            KhoiTaoMenu();
+        }
+    }
+
+    public void TruyenDuLieuUIChoBanGoc(LevelCharacterSelectController clone)
+    {
+        this.levelHighlights = clone.levelHighlights;
+        this.levelButtons = clone.levelButtons;
+        this.levelLockIcons = clone.levelLockIcons;
+        this.characterButtons = clone.characterButtons;
+        this.characterHighlights = clone.characterHighlights;
+        this.playerInfoPanel = clone.playerInfoPanel;
+        this.playerInfoNameText = clone.playerInfoNameText;
+        this.playerInfoDescText = clone.playerInfoDescText;
+        this.playerInfoPortraitImage = clone.playerInfoPortraitImage;
+
+        // Truyền cả nút Bắt Đầu sang
+        this.startGameButton = clone.startGameButton;
+
+        this.KhoiTaoMenu();
+    }
+
+    void KhoiTaoMenu()
     {
         RefreshLevelLockState();
         if (playerInfoPanel != null)
             playerInfoPanel.SetActive(false);
+
+        if (characterButtons != null)
+        {
+            for (int i = 0; i < characterButtons.Length; i++)
+            {
+                int index = i;
+                if (characterButtons[i] != null)
+                {
+                    characterButtons[i].onClick.RemoveAllListeners();
+                    characterButtons[i].onClick.AddListener(() => ChonNhanVat(index));
+                }
+            }
+        }
+
+        // --- AUTO SETUP: Tự động gắn hàm cho nút Bắt Đầu ---
+        if (startGameButton != null)
+        {
+            startGameButton.onClick.RemoveAllListeners(); // Xóa liên kết cũ bị hỏng
+            startGameButton.onClick.AddListener(BatDauChoi); // Trói chặt vào hàm BatDauChoi
+        }
     }
 
     void RefreshLevelLockState()
     {
         int unlockedCount = PlayerPrefs.GetInt("UnlockedLevelCount", 1);
-
         for (int i = 0; i < levelSceneNames.Length; i++)
         {
             bool isUnlocked = i < unlockedCount;
-
             if (levelButtons != null && i < levelButtons.Length && levelButtons[i] != null)
                 levelButtons[i].interactable = isUnlocked;
-
             if (levelLockIcons != null && i < levelLockIcons.Length && levelLockIcons[i] != null)
                 levelLockIcons[i].SetActive(!isUnlocked);
         }
     }
-     
+
     public void ChonMan(int index)
     {
         if (index < 0 || index >= levelSceneNames.Length) return;
-
         int unlockedCount = PlayerPrefs.GetInt("UnlockedLevelCount", 1);
         if (index >= unlockedCount)
         {
             Debug.LogWarning("Màn chơi này chưa được mở khoá!");
             return;
         }
-
         selectedLevel = levelSceneNames[index];
         for (int i = 0; i < levelHighlights.Length; i++)
             if (levelHighlights[i] != null) levelHighlights[i].SetActive(i == index);
@@ -75,10 +135,8 @@ public class LevelCharacterSelectController : MonoBehaviour
     public void ChonNhanVat(int index)
     {
         selectedCharacter = index;
-
         for (int i = 0; i < characterHighlights.Length; i++)
             if (characterHighlights[i] != null) characterHighlights[i].SetActive(i == index);
-
         ShowPlayerInfo(index);
     }
 
@@ -88,17 +146,10 @@ public class LevelCharacterSelectController : MonoBehaviour
         if (playerInfoPanel == null) return;
 
         PlayerData data = playerDataList[index];
-
         playerInfoPanel.SetActive(true);
-
-        if (playerInfoNameText != null)
-            playerInfoNameText.text = data.playerName;
-
-        if (playerInfoDescText != null)
-            playerInfoDescText.text = data.description;
-
-        if (playerInfoPortraitImage != null && data.portrait != null)
-            playerInfoPortraitImage.sprite = data.portrait;
+        if (playerInfoNameText != null) playerInfoNameText.text = data.playerName;
+        if (playerInfoDescText != null) playerInfoDescText.text = data.description;
+        if (playerInfoPortraitImage != null && data.portrait != null) playerInfoPortraitImage.sprite = data.portrait;
     }
 
     public void BatDauChoi()
@@ -109,6 +160,14 @@ public class LevelCharacterSelectController : MonoBehaviour
         GameSession.SelectedLevelName = selectedLevel;
         GameSession.SelectedCharacterIndex = selectedCharacter;
 
-        SceneManager.LoadScene(selectedLevel);
+        StoryController storyController = FindFirstObjectByType<StoryController>();
+        if (storyController != null)
+        {
+            storyController.OpenStory();
+        }
+        else
+        {
+            SceneManager.LoadScene(selectedLevel);
+        }
     }
 }

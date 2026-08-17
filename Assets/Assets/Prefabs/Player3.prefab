@@ -121,6 +121,9 @@ GameObject:
   - component: {fileID: 4973350474208075259}
   - component: {fileID: 3862949944884558459}
   - component: {fileID: 5875606456618873889}
+  - component: {fileID: 4834722356979127449}
+  - component: {fileID: 3667450353314280924}
+  - component: {fileID: 8112527072462790376}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Player
@@ -136,9 +139,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7160388252850471935}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 451, y: 2, z: 0}
-  m_LocalScale: {x: 3.361068, y: 2.78943, z: 0}
+  m_LocalScale: {x: 3.3610678, y: 2.7894297, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4175757335674849644}
@@ -274,7 +277,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7160388252850471935}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1394ea9ee1a586b40bfe70cc7565c8b7, type: 3}
   m_Name: 
@@ -297,6 +300,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 3678326560672516312}
+  defense: 0
+  lifesteal: 0
   invincibilityDuration: 0.5
   damagePopupPrefab: {fileID: 0}
   gameOverPanel: {fileID: 0}
@@ -364,9 +369,9 @@ MonoBehaviour:
   currentExp: 0
   expToNextLevel: 100
   expBar: {fileID: 0}
-  cauNuocPrefab: {fileID: 0}
-  swordPrefab: {fileID: 0}
-  playerTransform: {fileID: 0}
+  ThuyCauPrefab: {fileID: 7566782641627064233, guid: 64e004f7159dd8a48b7f02465e5c6b7e, type: 3}
+  swordPrefab: {fileID: 6036433029794523793, guid: ae693ee88c08c4c47be30f727dbcd93b, type: 3}
+  autoSlashPrefab: {fileID: 0}
 --- !u!114 &3862949944884558459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +379,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7160388252850471935}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 256ce851bdf5e134ea6be8ebc89c994b, type: 3}
   m_Name: 
@@ -395,9 +400,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9fc980e27d6b7429871fe774aba8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoSlash
-  slashPrefab: {fileID: 5810565115824167742, guid: 96f24ced0c7f964419776f00f474de84, type: 3}
+  autoSlashPrefab: {fileID: 5810565115824167742, guid: 96f24ced0c7f964419776f00f474de84, type: 3}
+  damage: 15
   attackRate: 1
   spawnDistance: 1.5
+  slashLifeTime: 0.2
+--- !u!114 &4834722356979127449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160388252850471935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ccb283df0f0494aa0ed0445e18ac7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFollowMe
+--- !u!114 &3667450353314280924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160388252850471935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b54fe01b2b7cf458dca160bd9c2e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement2
+  speed: 5
+  maxHealth: 100
+--- !u!114 &8112527072462790376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160388252850471935}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567e319cea112a14bbed7901968215e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultThuyCau
+  thuyCauPrefab: {fileID: 7566782641627064233, guid: 64e004f7159dd8a48b7f02465e5c6b7e, type: 3}
+  orbitRadius: 1.5
+  orbitSpeed: 100
+  currentCount: 1
+  maxCount: 3
 --- !u!1 &7340308845706666085
 GameObject:
   m_ObjectHideFlags: 0
